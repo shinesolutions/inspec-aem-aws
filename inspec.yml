@@ -1,0 +1,11 @@
+name: aem-aws
+title: AEM-AWS InSpec profile
+maintainer: Shine Solutions
+copyright: Shine Solutions
+copyright_email: opensource@shinesolutions.com
+license: Apache-2.0
+summary: InSpec profile for checking AEM resources
+version: 0.9.0
+supports:
+  - os-family: darwin
+  - os-family: linux
