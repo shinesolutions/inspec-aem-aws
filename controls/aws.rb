@@ -1,18 +1,9 @@
-control 'aem-author-instances-available' do
+control 'aws-snapshot-exists' do
   impact 1.0
-  title 'Check available AEM Author instances'
-  desc 'Check available AEM Author instances'
+  title 'Check if the snapshot exists on AWS'
+  desc 'Check if the snapshot exists on AWS'
   describe aws do
-    it { should have_author_instances }
-  end
-end
-
-control 'aws-live-snapshot-exists' do
-  impact 1.0
-  title 'Check if a Live snapshot exists'
-  desc 'Check if a Live snapshot exists'
-  describe aws do
-    it { should have_live_snapshot_taken }
+    it { should have_snapshot_taken }
   end
 end
 

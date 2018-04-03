@@ -60,6 +60,6 @@ def init_aws_aem_instance_client(client, conf)
     client = client.consolidated(conf[:stack_prefix])
     [client, client.author_publish_dispatcher]
   else
-    puts 'Component check not implemented yet'
+    client.full_set(conf[:stack_prefix])
   end
 end

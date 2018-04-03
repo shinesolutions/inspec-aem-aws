@@ -47,19 +47,15 @@ class Aws < Inspec.resource(1)
     return true unless instance < 2
   end
 
-  def has_author_primary_terminated?
-    @client_aem_aws.author.terminate_primary_instance
-  end
-
-  def has_author_standby_terminated?
-    @client_aem_aws.author.terminate_standby_instance
-  end
-
   def has_live_snapshots?
     @client_instance.snapshots?('live')
   end
 
-  def has_live_snapshot_taken?
+  def has_offline_snapshots?
+    @client_instance.snapshots?('offline')
+  end
+
+  def has_snapshot_taken?
     @client_instance.snapshot?(@params[:snapshot_id])
   end
 
@@ -67,26 +63,4 @@ class Aws < Inspec.resource(1)
     package_source = "backup/#{@params[:stack_prefix]}/#{@params[:export_package_group]}/#{@params[:export_package_backup_path]}/#{@params[:export_package_name]}-#{@params[:export_package_version]}.zip"
     @client_sm.sm_resources.s3_resource_object(@params[:s3_bucket], package_source).exists?
   end
-end
-# no pipe test
-def has_packages_described_in_descriptor?(descriptor_file, aem_client, instance)
-  file = Tempfile.new('descriptor_file')
-  @client_sm.sm_resources.s3_download_object(@params[:s3_bucket], "#{@params[:stack_prefix]}/#{descriptor_file}", file)
-  deploy_artifacts_descriptor_file = file.read
-  deploy_artifacts_hash_map = JSON.parse(deploy_artifacts_descriptor_file)
-  exit_code = 0
-  if deploy_artifacts_hash_map[instance.descriptor.ec2.component].include?('packages').eql? TRUE
-    i = deploy_artifacts_hash_map[instance.descriptor.ec2.component]['packages'].length
-    ii = 0
-    while ii < i
-      @package_group = deploy_artifacts_hash_map[instance.descriptor.ec2.component]['packages'][ii]['group']
-      @package_name = deploy_artifacts_hash_map[instance.descriptor.ec2.component]['packages'][ii]['name']
-      @package_version = deploy_artifacts_hash_map[instance.descriptor.ec2.component]['packages'][ii]['version']
-      package = aem_client.package(@package_group, @package_name, @package_version)
-      result = package.exists
-      exit_code += 1 unless result.message.eql? "Package #{@package_group}/#{@package_name}-#{@package_version} does not exist"
-      ii += 1
-    end
-  end
-  return TRUE unless exit_code == 0
 end
