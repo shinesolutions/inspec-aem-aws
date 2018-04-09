@@ -13,6 +13,22 @@ lint:
 test:
 	inspec exec .
 
+test-ready:
+	inspec exec . --show-progress --controls=\
+	  author-instances-ready \
+	  publish-instances-ready \
+	  author-dispatcher-instances-ready \
+	  publish-dispatcher-instances-ready
+
+test-recovery:
+	inspec exec . --show-progress --controls=\
+	  terminate-random-author-dispatcher-instance \
+		recover-from-author-dispatcher-termination \
+		terminate-random-publish-instance \
+		recover-from-publish-termination \
+		terminate-random-publish-dispatcher-instance \
+		recover-from-publish-dispatcher-termination \
+
 tools:
 	gem install bundler
 
