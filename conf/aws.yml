@@ -1,7 +1,7 @@
 :aws_access_key_id:
 :aws_secret_access_key:
 :aws_profile:
-:component: author-primary
-:id: author
+:component:
+:id:
 :s3_bucket: aem-stack-bucket
 :stack_prefix: aem-full-set
