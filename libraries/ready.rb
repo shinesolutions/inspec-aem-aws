@@ -25,24 +25,24 @@ class Ready < Inspec.resource(1)
   def initialize
     conf = read_config
     client = init_aem_aws_client(conf)
-    @client_fs = init_aws_aem_instance_client(client, conf)
+    @client_aem_aws = init_aws_aem_instance_client(client, conf)
 
     @params = {}
   end
 
   def has_all_author_instances_ready?
-    @client_fs.author.wait_until_healthy
+    @client_aem_aws.author.wait_until_healthy
   end
 
   def has_all_publish_instances_ready?
-    @client_fs.publish.wait_until_healthy
+    @client_aem_aws.publish.wait_until_healthy
   end
 
   def has_all_author_dispatcher_instances_ready?
-    @client_fs.author_dispatcher.wait_until_healthy
+    @client_aem_aws.author_dispatcher.wait_until_healthy
   end
 
   def has_all_publish_dispatcher_instances_ready?
-    @client_fs.publish_dispatcher.wait_until_healthy
+    @client_aem_aws.publish_dispatcher.wait_until_healthy
   end
 end

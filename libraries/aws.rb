@@ -40,13 +40,6 @@ class Aws < Inspec.resource(1)
     }
   end
 
-  def has_author_instances?
-    instance = 0
-    instance += 1  unless @client_aem_aws.author.author_primary.healthy?.eql? false
-    instance += 1  unless @client_aem_aws.author.author_standby.healthy?.eql? false
-    return true unless instance < 2
-  end
-
   def has_live_snapshots?
     @client_instance.snapshots?('live')
   end

@@ -20,6 +20,14 @@ Run all tests:
 
     make test
 
+Run Readiness test:
+
+    make test-ready
+
+Run Recovery test:
+
+    make test-recovery
+
 Run all tests with custom configuration file:
 
     INSPEC_AWS_CONF=some-aws.yaml make test

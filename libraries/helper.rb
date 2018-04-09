@@ -23,8 +23,6 @@ def read_config
       config_params[field.to_sym] = ENV[env_field]
     elsif !config.nil? && !config[field.to_sym].nil?
       config_params[field.to_sym] = config[field.to_sym]
-    else
-      puts 'Using Default values from ruby_aem_aws'
     end
   }
   config_params
