@@ -11,20 +11,27 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 require 'ruby_aem_aws'
 
 def read_config
   config_file = ENV['INSPEC_AWS_CONF'] || './conf/aws.yml'
   config = YAML.load_file(config_file) if File.exist?(config_file)
   config_params = {}
-  %w[aws_profile s3_bucket stack_prefix aws_access_key_id aws_secret_access_key component id].each { |field|
+  %w[profile access_key_id secret_access_key s3_bucket].each { |field|
+    env_field = format('aws_%<field>s', field: field)
+    if !ENV[env_field].nil?
+      config_params[field.to_sym] = ENV[env_field]
+    elsif !config.nil? && !config[field.to_sym].nil?
+      config_params[field.to_sym] = config[aws][field.to_sym]
+    end
+  }
+  %w[stack_prefix component id].each { |field|
     env_field = format('aem_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[field.to_sym] = ENV[env_field]
     elsif !config.nil? && !config[field.to_sym].nil?
-      config_params[field.to_sym] = config[field.to_sym]
-    else
-      puts 'Using Default values from ruby_aem_aws'
+      config_params[field.to_sym] = config[aem][field.to_sym]
     end
   }
   config_params
