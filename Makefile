@@ -13,7 +13,7 @@ lint:
 test:
 	inspec exec .
 
-test-ready:
+test-readiness:
 	inspec exec . --show-progress --controls=\
 	  author-instances-ready \
 	  publish-instances-ready \

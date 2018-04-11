@@ -22,7 +22,7 @@ Run all tests:
 
 Run Readiness test:
 
-    make test-ready
+    make test-readiness
 
 Run Recovery test:
 
