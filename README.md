@@ -30,4 +30,4 @@ Run Recovery test:
 
 Run all tests with custom configuration file:
 
-    INSPEC_AWS_CONF=some-aws.yaml make test
+    INSPEC_AEM_AWS_CONF=some-aws.yaml make test
