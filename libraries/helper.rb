@@ -21,17 +21,17 @@ def read_config
   %w[profile access_key_id secret_access_key s3_bucket].each { |field|
     env_field = format('aws_%<field>s', field: field)
     if !ENV[env_field].nil?
-      config_params[field.to_sym] = ENV[env_field]
-    elsif !config.nil? && !config[field.to_sym].nil?
-      config_params[field.to_sym] = config[aws][field.to_sym]
+      config_params[:"aws_#{field}"] = ENV[env_field]
+    elsif !config.nil? && !config['aws'][field].nil?
+      config_params[:"aws_#{field}"] = config['aws'][field]
     end
   }
   %w[stack_prefix component id].each { |field|
     env_field = format('aem_%<field>s', field: field)
     if !ENV[env_field].nil?
-      config_params[field.to_sym] = ENV[env_field]
-    elsif !config.nil? && !config[field.to_sym].nil?
-      config_params[field.to_sym] = config[aem][field.to_sym]
+      config_params[:"aem_#{field}"] = ENV[env_field]
+    elsif !config.nil? && !config['aem'][field].nil?
+      config_params[:"aem_#{field}"] = config['aem'][field]
     end
   }
   config_params
@@ -42,31 +42,31 @@ def init_aem_aws_client(conf = {})
 end
 
 def init_aws_aem_instance_client(client, conf)
-  if conf[:component] == 'author-primary'
-    client = client.full_set(conf[:stack_prefix])
+  if conf[:aem_component] == 'author-primary'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.author.author_primary]
-  elsif conf[:component] == 'author-standby'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'author-standby'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.author.author_standby]
-  elsif conf[:component] == 'publish'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'publish'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.publish]
-  elsif conf[:component] == 'author-dispatcher'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'author-dispatcher'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.author_dispatcher]
-  elsif conf[:component] == 'publish-dispatcher'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'publish-dispatcher'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.publish_dispatcher]
-  elsif conf[:component] == 'chaos-monkey'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'chaos-monkey'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.chaos_monkey]
-  elsif conf[:component] == 'orchestrator'
-    client = client.full_set(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'orchestrator'
+    client = client.full_set(conf[:aem_stack_prefix])
     [client, client.orchestrator]
-  elsif conf[:component] == 'author-publish-dispatcher'
-    client = client.consolidated(conf[:stack_prefix])
+  elsif conf[:aem_component] == 'author-publish-dispatcher'
+    client = client.consolidated(conf[:aem_stack_prefix])
     [client, client.author_publish_dispatcher]
   else
-    client.full_set(conf[:stack_prefix])
+    client.full_set(conf[:aem_stack_prefix])
   end
 end
