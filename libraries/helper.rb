@@ -15,7 +15,7 @@
 require 'ruby_aem_aws'
 
 def read_config
-  config_file = ENV['INSPEC_AWS_CONF'] || './conf/aws.yml'
+  config_file = ENV['INSPEC_AEM_AWS_CONF'] || './conf/aem-aws.yml'
   config = YAML.load_file(config_file) if File.exist?(config_file)
   config_params = {}
   %w[profile access_key_id secret_access_key s3_bucket].each { |field|
