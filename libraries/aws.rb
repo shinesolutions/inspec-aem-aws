@@ -25,13 +25,13 @@ class Aws < Inspec.resource(1)
   def initialize
     conf = read_config
     client = init_aem_aws_client(conf)
-    @client_sm = client.stack_manager(conf[:stack_prefix])
+    @client_sm = client.stack_manager(conf[:aem_stack_prefix])
     @client_aem_aws, @client_instance = init_aws_aem_instance_client(client, conf)
 
     @params = {
-      s3_bucket: conf[:s3_bucket],
-      stack_prefix: conf[:stack_prefix],
-      component: conf[:component],
+      s3_bucket: conf[:aws_s3_bucket],
+      stack_prefix: conf[:aem_stack_prefix],
+      component: conf[:aem_component],
       snapshot_id: ENV['snapshot_id'],
       export_package_group: ENV['package_group'],
       export_package_name: ENV['package_name'],
