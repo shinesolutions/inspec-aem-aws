@@ -26,12 +26,28 @@ def read_config
       config_params[:"aws_#{field}"] = config['aws'][field]
     end
   }
+
   %w[stack_prefix component id].each { |field|
     env_field = format('aem_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[:"aem_#{field}"] = ENV[env_field]
     elsif !config.nil? && !config['aem'][field].nil?
       config_params[:"aem_#{field}"] = config['aem'][field]
+    end
+  }
+  config_params
+end
+
+def config_retries(task)
+  config_file = ENV['INSPEC_AEM_AWS_CONF'] || './conf/aem-aws.yml'
+  config = YAML.load_file(config_file) if File.exist?(config_file)
+  config_params = {}
+  %w[retry_counter retry_wait_in_seconds].each { |field|
+    if !config.nil? && !config[task][field].nil?
+      config_params[:"#{field}"] = config[task][field]
+    else
+      field_value = 60
+      config_params[:"#{field}"] = field_value
     end
   }
   config_params
@@ -69,4 +85,28 @@ def init_aws_aem_instance_client(client, conf)
   else
     client.full_set(conf[:aem_stack_prefix])
   end
+end
+
+def elb_instances_healthy?(task, client)
+  conf = config_retries(task)
+  return false if client.health_state.eql?(:misconfigured)
+  counter = 0
+  while counter < conf[:retry_counter]
+    sleep conf[:retry_wait_in_seconds] while client.health_state.eql?(:recovering) || client.health_state.eql?(:scaling)
+    return true if clieqnt.health_state.eql?(:ready)
+    counter += 1
+  end
+  false
+end
+
+def elb_healthy?(task, client)
+  conf = config_retries(task)
+  return false if client.health_state_elb.eql?(:misconfigured)
+  counter = 0
+  while counter < conf[:retry_counter]
+    sleep conf[:retry_wait_in_seconds] while client.health_state.eql?(:recovering) || client.health_state.eql?(:scaling)
+    return true if client.health_state_elb.eql?(:ready)
+    counter += 1
+  end
+  false
 end

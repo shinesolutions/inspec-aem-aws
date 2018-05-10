@@ -39,10 +39,10 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_author_dispatcher_instances_ready?
-    @client_aem_aws.author_dispatcher.wait_until_healthy_elb
+    elb_healthy?('ready', @client_aem_aws.author_dispatcher)
   end
 
   def has_all_publish_dispatcher_instances_ready?
-    @client_aem_aws.publish_dispatcher.wait_until_healthy_elb
+    elb_healthy?('ready', @client_aem_aws.publish_dispatcher)
   end
 end

@@ -51,7 +51,7 @@ class Recovery < Inspec.resource(1)
   end
 
   def able_to_recover_from_author_dispatcher_termination?
-    @client_aem_aws.author_dispatcher.wait_until_healthy_elb
+    elb_healthy?('recovery', @client_aem_aws.author_dispatcher)
   end
 
   def has_terminated_all_publish_instances?
@@ -75,6 +75,6 @@ class Recovery < Inspec.resource(1)
   end
 
   def able_to_recover_from_publish_dispatcher_termination?
-    @client_aem_aws.publish_dispatcher.wait_until_healthy_elb
+    elb_healthy?('recovery', @client_aem_aws.publish_dispatcher)
   end
 end

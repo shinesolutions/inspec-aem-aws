@@ -7,3 +7,9 @@ aem:
   component:
   id:
   stack_prefix:
+recovery:
+  retry_counter: 60
+  retry_wait_in_seconds: 60
+ready:
+  retry_counter: 60
+  retry_wait_in_seconds: 60
