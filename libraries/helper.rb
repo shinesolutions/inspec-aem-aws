@@ -92,8 +92,8 @@ def elb_instances_healthy?(task, client)
   return false if client.health_state.eql?(:misconfigured)
   counter = 0
   while counter < conf[:retry_counter]
-    sleep conf[:retry_wait_in_seconds] while client.health_state.eql?(:recovering) || client.health_state.eql?(:scaling)
     return true if clieqnt.health_state.eql?(:ready)
+    sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
   false
@@ -104,8 +104,8 @@ def elb_healthy?(task, client)
   return false if client.health_state_elb.eql?(:misconfigured)
   counter = 0
   while counter < conf[:retry_counter]
-    sleep conf[:retry_wait_in_seconds] while client.health_state.eql?(:recovering) || client.health_state.eql?(:scaling)
     return true if client.health_state_elb.eql?(:ready)
+    sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
   false
