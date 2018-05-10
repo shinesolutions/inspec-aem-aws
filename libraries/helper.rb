@@ -110,3 +110,14 @@ def elb_healthy?(task, client)
   end
   false
 end
+
+def instances_healthy?(task, client)
+  conf = config_retries(task)
+  counter = 0
+  while counter < conf[:retry_counter]
+    return true if client.healthy?
+    sleep conf[:retry_wait_in_seconds]
+    counter += 1
+  end
+  false
+end

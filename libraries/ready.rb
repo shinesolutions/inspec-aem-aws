@@ -31,11 +31,11 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_author_instances_ready?
-    @client_aem_aws.author.wait_until_healthy
+    instances_healthy?('ready', @client_aem_aws.author)
   end
 
   def has_all_publish_instances_ready?
-    @client_aem_aws.publish.wait_until_healthy
+    instances_healthy?('ready', @client_aem_aws.publish)
   end
 
   def has_all_author_dispatcher_instances_ready?
