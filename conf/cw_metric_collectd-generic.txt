@@ -1,0 +1,4 @@
+memory.memory.cached
+memory.memory.free
+memory.memory.used
+memory.memory.buffered

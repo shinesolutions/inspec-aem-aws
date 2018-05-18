@@ -35,7 +35,7 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_publish_instances_ready?
-    instances_healthy?('ready', @client_aem_aws.publish)
+    asg_healthy?('ready', @client_aem_aws.publish)
   end
 
   def has_all_author_dispatcher_instances_ready?

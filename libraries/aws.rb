@@ -56,4 +56,24 @@ class Aws < Inspec.resource(1)
     package_source = "backup/#{@params[:stack_prefix]}/#{@params[:export_package_group]}/#{@params[:export_package_backup_path]}/#{@params[:export_package_name]}-#{@params[:export_package_version]}.zip"
     @client_sm.sm_resources.s3_resource_object(@params[:s3_bucket], package_source).exists?
   end
+
+  def has_cloudwatch_metric?(dimensions_name, dimensions_value, namespace, metric_name)
+    @client_instance.metric?(dimensions_name, dimensions_value, namespace, metric_name)
+  end
+
+  def has_cloudwatch_loggroup?(loggroup_name)
+    @client_instance.loggroup?(loggroup_name)
+  end
+
+  def has_cloudwatch_log_stream?(loggroup_name, logfile_name)
+    @client_instance.log_stream?(loggroup_name, logfile_name)
+  end
+
+  def has_cloudwatch_alarm?(alarm_name)
+    @client_instance.alarm?(alarm_name)
+  end
+
+  def has_cloudwatch_log_event?(loggroup_name, logfile_name, log_message)
+    @client_instance.log_event?(loggroup_name, logfile_name, log_message)
+  end
 end

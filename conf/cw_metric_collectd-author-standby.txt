@@ -1,0 +1,1 @@
+GenericJMX.delay.seconds_since_last_success
