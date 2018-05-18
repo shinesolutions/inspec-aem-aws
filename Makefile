@@ -83,7 +83,7 @@ test-acceptance-publish-dispatcher:
 		publish-dispatcher-generic-cloudwatch-log-streams-exist \
 		publish-dispatcher-finished-provisioning
 
-test-acceptance-orachestrator:
+test-acceptance-orchestrator:
 	inspec exec . --show-progress --controls=\
 		orchestrator-cloudwatch-ec2-metrics-exist \
 		orchestrator-cloudwatch-loggroups-exist \
