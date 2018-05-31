@@ -1,0 +1,10 @@
+/opt/aem/author/crx-quickstart/logs/access.log
+/opt/aem/author/crx-quickstart/logs/audit.log
+/opt/aem/author/crx-quickstart/logs/auditlog.log
+/opt/aem/author/crx-quickstart/logs/error.log
+/opt/aem/author/crx-quickstart/logs/gc_logs.log
+/opt/aem/author/crx-quickstart/logs/history.log
+/opt/aem/author/crx-quickstart/logs/request.log
+/opt/aem/author/crx-quickstart/logs/stdout.log
+/opt/aem/author/crx-quickstart/logs/upgrade.log
+/var/log/live-snapshot-backup.log

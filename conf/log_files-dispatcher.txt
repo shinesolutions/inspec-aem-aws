@@ -1,0 +1,8 @@
+/var/log/httpd/access_log
+/var/log/httpd/default_error.log
+/var/log/httpd/dispatcher.log
+/var/log/httpd/error_log
+/var/log/httpd/httpd-non-ssl_access.log
+/var/log/httpd/httpd-non-ssl_error.log
+/var/log/httpd/httpd-ssl_access_ssl.log
+/var/log/httpd/httpd-ssl_error.log

@@ -63,7 +63,7 @@ class Recovery < Inspec.resource(1)
   end
 
   def able_to_recover_from_publish_termination?
-    instances_healthy?('recovery', @client_aem_aws.publish)
+    asg_healthy?('recovery', @client_aem_aws.publish)
   end
 
   def has_terminated_all_publish_dispatcher_instances?
