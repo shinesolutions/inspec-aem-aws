@@ -1,5 +1,1 @@
 /opt/shinesolutions/aem-orchestrator/orchestrator.log
-/var/log/stack-offline-compaction-snapshot.log
-/var/log/stack-offline-snapshot.log
-/var/log/tomcat/simianarmy.log
-/var/log/live-snapshot-backup.log

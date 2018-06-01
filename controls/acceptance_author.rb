@@ -75,7 +75,7 @@ control 'author-primary-finished-provisioning' do
   title 'Check if author-primary has finished provisioning process'
   desc 'provisioning should be done'
   describe acceptance do
-    it { should have_author_primary_cloudwatch_log_event('/var/log/puppet-stack-init.log', 'Applied') }
+    it { should have_author_primary_cloudwatch_log_event('/var/log/shinesolutions/puppet-stack-init.log', 'Applied') }
   end
 end
 
@@ -168,6 +168,6 @@ control 'author-standby-finished-provisioning' do
   title 'Check if publisher has finished provisioning process'
   desc 'provisioning should be done'
   describe acceptance do
-    it { should have_author_standby_cloudwatch_log_event('/var/log/puppet-stack-init.log', 'Applied') }
+    it { should have_author_standby_cloudwatch_log_event('/var/log/shinesolutions/puppet-stack-init.log', 'Applied') }
   end
 end

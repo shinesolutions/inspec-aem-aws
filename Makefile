@@ -92,6 +92,10 @@ test-acceptance-orchestrator:
 		orchestrator-generic-cloudwatch-log-streams-exist \
 		orchestrator-finished-provisioning
 
+test-contenthealthcheck-alarm-state:
+	inspec exec . --show-progress --controls=\
+	publish-wait-until-contenthealthcheck-alarm-ok
+
 tools:
 	gem install bundler
 

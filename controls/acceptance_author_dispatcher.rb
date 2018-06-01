@@ -63,6 +63,6 @@ control 'author-dispatcher-finished-provisioning' do
   title 'Check if author-dispatcher has finished provisioning process'
   desc 'provisioning should be done'
   describe acceptance do
-    it { should have_author_dispatcher_cloudwatch_log_event('/var/log/puppet-stack-init.log', 'Applied') }
+    it { should have_author_dispatcher_cloudwatch_log_event('/var/log/shinesolutions/puppet-stack-init.log', 'Applied') }
   end
 end

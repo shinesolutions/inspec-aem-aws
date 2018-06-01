@@ -1,10 +1,4 @@
 /opt/aem/publish/crx-quickstart/logs/access.log
-/opt/aem/publish/crx-quickstart/logs/audit.log
-/opt/aem/publish/crx-quickstart/logs/auditlog.log
 /opt/aem/publish/crx-quickstart/logs/error.log
-/opt/aem/publish/crx-quickstart/logs/gc_logs.log
-/opt/aem/publish/crx-quickstart/logs/history.log
 /opt/aem/publish/crx-quickstart/logs/request.log
 /opt/aem/publish/crx-quickstart/logs/stdout.log
-/opt/aem/publish/crx-quickstart/logs/upgrade.log
-/var/log/live-snapshot-backup.log
