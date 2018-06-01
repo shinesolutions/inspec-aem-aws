@@ -1,5 +1,6 @@
 ### 0.11.1
-*
+* Add check for alarm states
+* Add Checks for alarm state of contentHealthCheck
 
 ### 0.11.0
 * Add acceptance test support
