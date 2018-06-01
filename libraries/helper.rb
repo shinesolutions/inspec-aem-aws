@@ -139,12 +139,25 @@ def get_alarm_state(alarm_name, client)
   while counter < conf[:retry_counter]
     response = client.get_alarm(alarm_name)
 
-    sleep conf[:retry_wait_in_seconds] if response.metric_alarms.empty?
     counter += 1
+    sleep conf[:retry_wait_in_seconds] if response.metric_alarms.empty?
     next if response.metric_alarms.empty?
 
     return true if response.metric_alarms[0].state_value.eql? 'OK'
     return false if response.metric_alarms[0].state_value.eql? 'ALARM'
+    sleep conf[:retry_wait_in_seconds]
+  end
+  false
+end
+
+def wait_until_alarm_state_ok(alarm_name, client)
+  conf = config_retries(alarm_name)
+  counter = 0
+  while counter < conf[:retry_counter]
+    response = get_alarm_state(alarm_name, client)
+    return true if response.eql? true
+
+    counter += 1
     sleep conf[:retry_wait_in_seconds]
   end
   false

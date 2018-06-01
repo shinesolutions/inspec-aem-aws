@@ -96,3 +96,12 @@ control 'publish-contenthealthcheck-alarm-ok' do
     it { should have_contenthealthcheck_cloudwatch_alarm_state_ok }
   end
 end
+
+control 'publish-wait-until-contenthealthcheck-alarm-ok' do
+  impact 1.0
+  title 'Waits until contenthealthcheck alarm state is OK'
+  desc 'alarm state should be ok'
+  describe acceptance do
+    it { should have_wait_until_contenthealthcheck_cloudwatch_alarm_state_ok }
+  end
+end
