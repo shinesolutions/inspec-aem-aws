@@ -1,3 +1,6 @@
+### 0.11.2
+*
+
 ### 0.11.1
 * Add check for alarm states
 * Add Checks for alarm state of contentHealthCheck
