@@ -126,12 +126,34 @@ class Acceptance < Inspec.resource(1)
     instances_found = instances.count
 
     instances.each do |instance|
-      next if instance.nil?
+      next if instance.nil? || instance.state.code != 16
       instance_id = instance.instance_id
 
       alarm_name = "contentHealthCheck-#{instance_id}"
 
       response = client.component_alarm?(alarm_name)
+
+      instances_with_metric.push(instance_id) if response.eql? true
+    end
+    instances_with_metric = instances_with_metric.count
+
+    return true unless instances_with_metric < instances_found
+  end
+
+  def has_contenthealthcheck_cloudwatch_alarm_state_ok?
+    instances_with_metric = []
+    client = @client_aem_aws.publish
+
+    instances = client.get_all_instances
+    instances_found = instances.count
+
+    instances.each do |instance|
+      next if instance.nil? || instance.state.code != 16
+      instance_id = instance.instance_id
+
+      alarm_name = "contentHealthCheck-#{instance_id}"
+
+      response = get_alarm_state(alarm_name, client)
 
       instances_with_metric.push(instance_id) if response.eql? true
     end

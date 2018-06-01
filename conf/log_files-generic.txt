@@ -1,10 +1,7 @@
-/var/log/amazon/ssm/errors.log
-/var/log/cloud-init-output.log
 /var/log/cloud-init.log
 /var/log/cron
-/var/log/dmesg
 /var/log/maillog
 /var/log/messages
-/var/log/puppet-stack-init.log
+/var/log/shinesolutions/puppet-stack-init.log
 /var/log/secure
 /var/log/yum.log

@@ -84,6 +84,15 @@ control 'publish-finished-provisioning' do
   title 'Check if publisher has finished provisioning process'
   desc 'provisioning should be done'
   describe acceptance do
-    it { should have_publish_cloudwatch_log_event('/var/log/puppet-stack-init.log', 'Applied') }
+    it { should have_publish_cloudwatch_log_event('/var/log/shinesolutions/puppet-stack-init.log', 'Applied') }
+  end
+end
+
+control 'publish-contenthealthcheck-alarm-ok' do
+  impact 1.0
+  title 'Check if alarm state of contenthealthcheck is OK'
+  desc 'alarm state should be ok'
+  describe acceptance do
+    it { should have_contenthealthcheck_cloudwatch_alarm_state_ok }
   end
 end
