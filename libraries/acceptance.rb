@@ -146,6 +146,7 @@ class Acceptance < Inspec.resource(1)
 
     instances = client.get_all_instances
     instances_found = instances.count
+    return false if instances_found.eql? 0
 
     instances.each do |instance|
       next if instance.nil? || instance.state.code != 16
@@ -168,6 +169,7 @@ class Acceptance < Inspec.resource(1)
 
     instances = client.get_all_instances
     instances_found = instances.count
+    return false if instances_found.eql? 0
 
     instances.each do |instance|
       next if instance.nil? || instance.state.code != 16
