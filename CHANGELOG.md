@@ -1,5 +1,5 @@
 ### 0.11.2
-*
+* Content health check should fail when there is no instance
 
 ### 0.11.1
 * Add check for alarm states
