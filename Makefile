@@ -7,8 +7,10 @@ deps:
 	bundle install
 
 lint:
-	inspec check .
 	rubocop
+
+test-integration:
+	inspec check .
 
 test:
 	inspec exec .
