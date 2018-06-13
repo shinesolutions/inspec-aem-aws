@@ -1,3 +1,6 @@
+### 0.11.3
+*
+
 ### 0.11.2
 * Content health check should fail when there is no instance
 
