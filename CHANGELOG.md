@@ -1,5 +1,5 @@
 ### 0.11.3
-*
+* Remove default profile, move inspec check out of lint to avoid IO during CI run
 
 ### 0.11.2
 * Content health check should fail when there is no instance
