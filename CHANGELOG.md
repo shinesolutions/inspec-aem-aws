@@ -1,5 +1,5 @@
 ### 0.11.4
-*
+* Fix config parameter mapping from config file
 
 ### 0.11.3
 * Remove default profile, move inspec check out of lint to avoid IO during CI run
