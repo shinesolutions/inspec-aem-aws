@@ -22,7 +22,7 @@ def read_config
     env_field = format('aws_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[:"aws_#{field}"] = ENV[env_field]
-    elsif !config.nil? && !config['aws'][field].nil?
+    elsif !config.nil? && !config['aws'][:field].nil?
       config_params[:"aws_#{field}"] = config['aws'][field]
     end
   }
@@ -31,7 +31,7 @@ def read_config
     env_field = format('aem_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[:"aem_#{field}"] = ENV[env_field]
-    elsif !config.nil? && !config['aem'][field].nil?
+    elsif !config.nil? && !config['aem'][:field].nil?
       config_params[:"aem_#{field}"] = config['aem'][field]
     end
   }
@@ -43,7 +43,7 @@ def config_retries(task)
   config = YAML.load_file(config_file) if File.exist?(config_file)
   config_params = {}
   %w[retry_counter retry_wait_in_seconds].each { |field|
-    if !config.nil? && !config[task].nil? && config[task][field].nil?
+    if !config.nil? && !config[task].nil? && config[task][:field].nil?
       config_params[:"#{field}"] = config[task][field]
     else
       field_value = 60
