@@ -90,9 +90,11 @@ end
 def elb_instances_healthy?(task, client)
   conf = config_retries(task)
   return false if client.health_state.eql?(:misconfigured)
+
   counter = 0
   while counter < conf[:retry_counter]
     return true if clieqnt.health_state.eql?(:ready)
+
     sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
@@ -102,9 +104,11 @@ end
 def elb_healthy?(task, client)
   conf = config_retries(task)
   return false if client.health_state_elb.eql?(:misconfigured)
+
   counter = 0
   while counter < conf[:retry_counter]
     return true if client.health_state_elb.eql?(:ready)
+
     sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
@@ -116,6 +120,7 @@ def instances_healthy?(task, client)
   counter = 0
   while counter < conf[:retry_counter]
     return true if client.healthy?
+
     sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
@@ -127,6 +132,7 @@ def asg_healthy?(task, client)
   counter = 0
   while counter < conf[:retry_counter]
     return true if client.healthy_asg?
+
     sleep conf[:retry_wait_in_seconds]
     counter += 1
   end
@@ -144,7 +150,9 @@ def get_alarm_state(alarm_name, client)
     next if response.metric_alarms.empty?
 
     return true if response.metric_alarms[0].state_value.eql? 'OK'
+
     return false if response.metric_alarms[0].state_value.eql? 'ALARM'
+
     sleep conf[:retry_wait_in_seconds]
   end
   false
