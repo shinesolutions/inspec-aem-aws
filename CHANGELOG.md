@@ -1,5 +1,5 @@
 ### 0.11.4
-*
+* Fix bug in loading retry values from configuration file #11
 
 ### 0.11.3
 * Remove default profile, move inspec check out of lint to avoid IO during CI run
