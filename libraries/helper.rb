@@ -43,7 +43,7 @@ def config_retries(task)
   config = YAML.load_file(config_file) if File.exist?(config_file)
   config_params = {}
   %w[retry_counter retry_wait_in_seconds].each { |field|
-    if !config.nil? && !config[task].nil? && config[task][field].nil?
+    if !config.nil? && !config[task].nil? && !config[task][field].nil?
       config_params[:"#{field}"] = config[task][field]
     else
       field_value = 60
