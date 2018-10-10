@@ -1,29 +1,30 @@
 ci: tools deps lint
 
 clean:
-	rm Gemfile.lock inspec.lock
+	rm *.lock bin vendor
 
 deps:
-	bundle install
+	bundle config --local path vendor/bundle
+	bundle install --binstubs
 
 lint:
-	rubocop
+	bundle exec rubocop Gemfile controls/ libraries/
 
 test-integration:
-	inspec check .
+	bundle exec inspec check .
 
 test:
-	inspec exec .
+	bundle exec inspec exec .
 
 test-readiness:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 	  author-instances-ready \
 	  publish-instances-ready \
 	  author-dispatcher-instances-ready \
 	  publish-dispatcher-instances-ready
 
 test-recovery:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 	  terminate-random-author-dispatcher-instance \
 		recover-from-author-dispatcher-termination \
 		terminate-random-publish-instance \
@@ -32,11 +33,11 @@ test-recovery:
 		recover-from-publish-dispatcher-termination \
 
 test-acceptance-full-set:
-	inspec exec . --show-progress --controls=\
-	full-set-cloudwatch-alarms-exists
+	bundle exec inspec exec . --show-progress --controls=\
+	  full-set-cloudwatch-alarms-exists
 
 test-acceptance-author-primary:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 		author-primary-cloudwatch-ec2-metrics-exist \
 		author-primary-cloudwatch-collectd-generic-metric-exist \
 		author-primary-cloudwatch-loggroups-exist \
@@ -46,7 +47,7 @@ test-acceptance-author-primary:
 		author-primary-finished-provisioning
 
 test-acceptance-author-standby:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 		author-standby-cloudwatch-ec2-metrics-exist \
 		author-standby-cloudwatch-collectd-generic-metric-exist \
 		author-standby-cloudwatch-collectd-sync-metric-exist \
@@ -57,7 +58,7 @@ test-acceptance-author-standby:
 		author-standby-finished-provisioning
 
 test-acceptance-publish:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 		publish-cloudwatch-ec2-metrics-exist \
 		publish-cloudwatch-contentHealthCheck-metric-exist \
 		publish-cloudwatch-collectd-generic-metric-exist \
@@ -68,7 +69,7 @@ test-acceptance-publish:
 		publish-finished-provisioning
 
 test-acceptance-author-dispatcher:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 		author-dispatcher-cloudwatch-ec2-metrics-exist \
 		author-dispatcher-cloudwatch-loggroups-exist \
 		author-dispatcher-cloudwatch-log-streams-exist \
@@ -86,7 +87,7 @@ test-acceptance-publish-dispatcher:
 		publish-dispatcher-finished-provisioning
 
 test-acceptance-orchestrator:
-	inspec exec . --show-progress --controls=\
+	bundle exec inspec exec . --show-progress --controls=\
 		orchestrator-cloudwatch-ec2-metrics-exist \
 		orchestrator-cloudwatch-loggroups-exist \
 		orchestrator-cloudwatch-log-streams-exist \
@@ -95,8 +96,8 @@ test-acceptance-orchestrator:
 		orchestrator-finished-provisioning
 
 test-contenthealthcheck-alarm-state:
-	inspec exec . --show-progress --controls=\
-	publish-wait-until-contenthealthcheck-alarm-ok
+	bundle exec inspec exec . --show-progress --controls=\
+	  publish-wait-until-contenthealthcheck-alarm-ok
 
 tools:
 	gem install bundler

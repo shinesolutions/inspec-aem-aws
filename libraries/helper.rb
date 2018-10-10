@@ -150,6 +150,7 @@ def get_alarm_state(alarm_name, client)
     next if response.metric_alarms.empty?
 
     return true if response.metric_alarms[0].state_value.eql? 'OK'
+
     return false if response.metric_alarms[0].state_value.eql? 'ALARM'
 
     sleep conf[:retry_wait_in_seconds]
