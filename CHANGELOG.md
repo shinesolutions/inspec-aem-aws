@@ -1,5 +1,5 @@
 ### 0.11.5
-*
+* Remove test stack prefix in default config
 
 ### 0.11.4
 * Fix bug in loading retry values from configuration file #11
