@@ -31,3 +31,7 @@ Run Recovery test:
 Run all tests with custom configuration file:
 
     INSPEC_AEM_AWS_CONF=some-aws.yaml make test
+
+Until issue [#10](https://github.com/shinesolutions/inspec-aem-aws/issues/10) is resolved, `aws_profile` needs to be passed as environment variable:
+
+    aws_profile=default INSPEC_AEM_AWS_CONF=some-aws.yaml make test
