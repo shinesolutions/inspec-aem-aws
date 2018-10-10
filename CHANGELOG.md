@@ -1,3 +1,6 @@
+### 0.11.6
+*
+
 ### 0.11.5
 * Remove test stack prefix in default config
 
