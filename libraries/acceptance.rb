@@ -127,6 +127,7 @@ class Acceptance < Inspec.resource(1)
 
     instances.each do |instance|
       next if instance.nil? || instance.state.code != 16
+
       instance_id = instance.instance_id
 
       alarm_name = "contentHealthCheck-#{instance_id}"
@@ -150,6 +151,7 @@ class Acceptance < Inspec.resource(1)
 
     instances.each do |instance|
       next if instance.nil? || instance.state.code != 16
+
       instance_id = instance.instance_id
 
       alarm_name = "contentHealthCheck-#{instance_id}"
@@ -173,6 +175,7 @@ class Acceptance < Inspec.resource(1)
 
     instances.each do |instance|
       next if instance.nil? || instance.state.code != 16
+
       instance_id = instance.instance_id
 
       alarm_name = "contentHealthCheck-#{instance_id}"
