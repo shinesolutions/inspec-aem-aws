@@ -1,3 +1,6 @@
+### 0.11.5
+*
+
 ### 0.11.4
 * Fix bug in loading retry values from configuration file #11
 * Introduce dependencies bundle vendoring
