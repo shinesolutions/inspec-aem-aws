@@ -1,5 +1,5 @@
 ### 0.11.6
-*
+* Add new checks for un/scheduling live-snapshots shinesolutions/aem-aws-stack-builder#212
 
 ### 0.11.5
 * Remove test stack prefix in default config
