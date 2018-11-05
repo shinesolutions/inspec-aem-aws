@@ -1,3 +1,6 @@
+### 0.11.7
+*
+
 ### 0.11.6
 * Add new checks for un/scheduling live-snapshots shinesolutions/aem-aws-stack-builder#212
 
