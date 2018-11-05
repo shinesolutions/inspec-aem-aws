@@ -1,9 +1,10 @@
-ci: tools deps lint
+ci: deps lint
 
 clean:
 	rm *.lock bin vendor
 
 deps:
+	gem install bundler
 	bundle config --local path vendor/bundle
 	bundle install --binstubs
 
@@ -99,7 +100,4 @@ test-contenthealthcheck-alarm-state:
 	bundle exec inspec exec . --show-progress --controls=\
 	  publish-wait-until-contenthealthcheck-alarm-ok
 
-tools:
-	gem install bundler
-
-.PHONY: ci clean deps lint test tools
+.PHONY: ci clean deps lint test
