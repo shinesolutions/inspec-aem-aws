@@ -91,6 +91,6 @@ class Recovery < Inspec.resource(1)
   end
 
   def able_to_recover_from_orchestrator_termination?
-    asg_healthy?('recovery', @client_aem_aws.orchestrator )
+    asg_healthy?('recovery', @client_aem_aws.orchestrator)
   end
 end
