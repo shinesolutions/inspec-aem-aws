@@ -24,6 +24,10 @@ test-readiness:
 	  author-dispatcher-instances-ready \
 	  publish-dispatcher-instances-ready
 
+terminate-author-primary:
+	bundle exec inspec exec . --show-progress --controls=\
+	  terminate-author-primary-instance
+
 test-recovery:
 	bundle exec inspec exec . --show-progress --controls=\
 	  terminate-random-author-dispatcher-instance \

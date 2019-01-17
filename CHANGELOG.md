@@ -1,5 +1,5 @@
 ### 0.11.7
-*
+* Add feature to terminate author-primary instance
 
 ### 0.11.6
 * Add new checks for un/scheduling live-snapshots shinesolutions/aem-aws-stack-builder#212
