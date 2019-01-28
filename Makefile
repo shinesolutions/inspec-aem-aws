@@ -37,7 +37,7 @@ test-recovery:
 		terminate-random-chaosmonkey-dispatcher-instance \
 		recover-from-chaosmonkey-dispatcher-termination \
 		terminate-random-orchestrator-dispatcher-instance \
-		recover-from-orchestrator-dispatcher-termination \
+		recover-from-orchestrator-dispatcher-termination
 
 test-acceptance-full-set:
 	bundle exec inspec exec . --show-progress --controls=\
