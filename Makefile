@@ -28,8 +28,6 @@ test-recovery:
 	bundle exec inspec exec . --show-progress --controls=\
 	  terminate-random-author-dispatcher-instance \
 		recover-from-author-dispatcher-termination \
-		terminate-random-publish-instance \
-		recover-from-publish-termination \
 		terminate-random-publish-dispatcher-instance \
 		recover-from-publish-dispatcher-termination \
 
