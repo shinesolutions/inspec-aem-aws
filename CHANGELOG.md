@@ -1,4 +1,5 @@
 ### 0.11.7
+* Add feature to terminate author-primary instance
 * Add readiness check for AEM OpenCloud components Chaos Monkey & Orchestrator
 * Add recovery testing for AEM OpenCloud components Chaos Monkey & Orchestrator
 

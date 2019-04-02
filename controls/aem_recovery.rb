@@ -1,3 +1,12 @@
+control 'terminate-author-primary-instance' do
+  impact 1.0
+  title 'Terminate AEM Author Primary instance'
+  desc 'Terminate AEM Author Primary instance'
+  describe recovery do
+    it { should have_terminated_author_primary_instance }
+  end
+end
+
 control 'terminate-random-author-dispatcher-instance' do
   impact 1.0
   title 'Terminate a random Author Dispatcher instance'
