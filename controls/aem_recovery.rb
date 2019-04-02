@@ -60,3 +60,39 @@ control 'recover-from-publish-dispatcher-termination' do
     it { should be_able_to_recover_from_publish_dispatcher_termination }
   end
 end
+
+control 'terminate-orchestrator-instance' do
+  impact 1.0
+  title 'Terminate a random Orchestrator instance'
+  desc 'Terminate a random Orchestrator instance'
+  describe recovery do
+    it { should have_terminated_a_random_orchestrator_instance }
+  end
+end
+
+control 'recover-from-orchestrator-termination' do
+  impact 1.0
+  title 'Recover from Orchestrator instance termination'
+  desc 'Recover from Orchestrator instance termination'
+  describe recovery do
+    it { should be_able_to_recover_from_orchestrator_termination }
+  end
+end
+
+control 'terminate-chaosmonkey-instance' do
+  impact 1.0
+  title 'Terminate the Chaosmonkey instance'
+  desc 'Terminate the Chaosmonkey instance'
+  describe recovery do
+    it { should have_terminated_chaosmonkey_instance }
+  end
+end
+
+control 'recover-from-chaosmonkey-termination' do
+  impact 1.0
+  title 'Recover from Chaosmonkey instance termination'
+  desc 'Recover from Chaosmonkey instance termination'
+  describe recovery do
+    it { should be_able_to_recover_from_chaosmonkey_termination }
+  end
+end
