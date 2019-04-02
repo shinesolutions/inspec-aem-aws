@@ -1,5 +1,6 @@
 ### 0.11.7
-*
+* Add readiness check for AEM OpenCloud components Chaos Monkey & Orchestrator
+* Add recovery testing for AEM OpenCloud components Chaos Monkey & Orchestrator
 
 ### 0.11.6
 * Add new checks for un/scheduling live-snapshots shinesolutions/aem-aws-stack-builder#212

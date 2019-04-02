@@ -45,4 +45,12 @@ class Ready < Inspec.resource(1)
   def has_all_publish_dispatcher_instances_ready?
     elb_healthy?('ready', @client_aem_aws.publish_dispatcher)
   end
+
+  def has_all_orchestrator_instances_ready?
+    asg_healthy?('ready', @client_aem_aws.orchestrator)
+  end
+
+  def has_all_chaosmonkey_instances_ready?
+    asg_healthy?('ready', @client_aem_aws.chaos_monkey)
+  end
 end

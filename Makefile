@@ -22,7 +22,9 @@ test-readiness:
 	  author-instances-ready \
 	  publish-instances-ready \
 	  author-dispatcher-instances-ready \
-	  publish-dispatcher-instances-ready
+	  publish-dispatcher-instances-ready \
+	  chaosmonkey-instances-ready \
+	  orchestrator-instances-ready
 
 test-recovery:
 	bundle exec inspec exec . --show-progress --controls=\
@@ -32,6 +34,10 @@ test-recovery:
 		recover-from-publish-termination \
 		terminate-random-publish-dispatcher-instance \
 		recover-from-publish-dispatcher-termination \
+		terminate-random-chaosmonkey-dispatcher-instance \
+		recover-from-chaosmonkey-dispatcher-termination \
+		terminate-random-orchestrator-dispatcher-instance \
+		recover-from-orchestrator-dispatcher-termination
 
 test-acceptance-full-set:
 	bundle exec inspec exec . --show-progress --controls=\
