@@ -58,3 +58,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial version
 
+[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.6...HEAD
+[0.11.6]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.5...0.11.6
+[0.11.5]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.4...0.11.5
+[0.11.4]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.3...0.11.4
+[0.11.3]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.2...0.11.3
+[0.11.2]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.1...0.11.2
+[0.11.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.11.0...0.11.1
+[0.11.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.10.0...0.11.0
+[0.10.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.9.0...0.10.0
