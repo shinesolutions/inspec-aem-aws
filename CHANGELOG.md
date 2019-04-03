@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Modify test make targets to execute inspec binary from the PATH instead of via bundler
+
 ## [0.12.0] - 2019-04-01
 
 ### Added
