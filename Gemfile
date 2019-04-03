@@ -5,4 +5,4 @@ source 'https://rubygems.org'
 gem 'inspec', '1.51.6'
 gem 'rubocop', require: false
 gem 'ruby_aem', '2.5.1'
-gem 'ruby_aem_aws', '1.1.0'
+gem 'ruby_aem_aws', '1.2.0'
