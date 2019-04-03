@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Modify test make targets to execute inspec binary from the PATH instead of via bundler
+- Upgrade ruby_aem to 2.5.1, change deps versions to be exact
 
 ## [0.12.0] - 2019-04-01
 
