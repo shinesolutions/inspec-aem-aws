@@ -30,20 +30,36 @@ terminate-author-primary:
 	inspec exec . --show-progress --controls=\
 	  terminate-author-primary-instance
 
-test-recovery:
+test-recovery: test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey test-recovery-orchestrator
+
+test-recovery-author-dispatcher:
 	inspec exec . --show-progress --controls=\
 	  terminate-random-author-dispatcher-instance \
-		recover-from-author-dispatcher-termination \
+		recover-from-author-dispatcher-termination
+
+test-recovery-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
 		terminate-random-publish-dispatcher-instance \
-		recover-from-publish-dispatcher-termination \
-		recover-from-publish-termination \
+		recover-from-publish-dispatcher-termination
+	inspec exec . --show-progress --controls=\
+		recover-from-publish-termination
+
+test-recovery-publish:
+	inspec exec . --show-progress --controls=\
 		terminate-random-publish-instance \
-		recover-from-publish-termination \
-		recover-from-publish-dispatcher-termination \
-		terminate-random-chaosmonkey-dispatcher-instance \
-		recover-from-chaosmonkey-dispatcher-termination \
-		terminate-random-orchestrator-dispatcher-instance \
-		recover-from-orchestrator-dispatcher-termination
+		recover-from-publish-termination
+	inspec exec . --show-progress --controls=\
+		recover-from-publish-dispatcher-termination
+
+test-recovery-chaosmonkey:
+	inspec exec . --show-progress --controls=\
+		terminate-chaosmonkey-instance \
+		recover-from-chaosmonkey-termination
+
+test-recovery-orchestrator:
+	inspec exec . --show-progress --controls=\
+		terminate-orchestrator-instance \
+		recover-from-orchestrator-termination
 
 test-acceptance-full-set:
 	inspec exec . --show-progress --controls=\
