@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade ruby_aem_aws to 1.2.0
 
+### Removed
+- Removed acceptance test for AEM logfiles access.log & request.log #25
+
 ## [0.13.0] - 2019-04-03
 
 ### Changed
