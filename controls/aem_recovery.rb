@@ -66,7 +66,7 @@ control 'terminate-orchestrator-instance' do
   title 'Terminate a random Orchestrator instance'
   desc 'Terminate a random Orchestrator instance'
   describe recovery do
-    it { should have_terminated_a_random_orchestrator_instance }
+    it { should have_terminated_a_orchestrator_instance }
   end
 end
 
@@ -84,7 +84,7 @@ control 'terminate-chaosmonkey-instance' do
   title 'Terminate the Chaosmonkey instance'
   desc 'Terminate the Chaosmonkey instance'
   describe recovery do
-    it { should have_terminated_chaosmonkey_instance }
+    it { should have_terminated_a_chaosmonkey_instance }
   end
 end
 
