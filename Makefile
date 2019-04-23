@@ -30,7 +30,7 @@ terminate-author-primary:
 	inspec exec . --show-progress --controls=\
 	  terminate-author-primary-instance
 
-test-recovery: test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey test-recovery-orchestrator
+test-recovery: test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey test-recovery-orchestrator
 
 test-recovery-author-dispatcher:
 	inspec exec . --show-progress --controls=\
