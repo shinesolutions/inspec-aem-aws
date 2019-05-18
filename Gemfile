@@ -8,3 +8,4 @@ gem 'inspec', '1.51.6'
 gem 'rubocop', '0.69.0', require: false
 gem 'ruby_aem', '2.5.1'
 gem 'ruby_aem_aws', '1.2.1'
+gem 'yaml-lint', '0.0.10', require: false

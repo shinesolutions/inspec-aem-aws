@@ -11,6 +11,7 @@ deps:
 
 lint:
 	bundle exec rubocop Gemfile controls/ libraries/
+	bundle exec yaml-lint .*.yml conf/*.yml
 
 test-integration:
 	inspec check .
