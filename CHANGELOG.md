@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
 ## [0.14.1] - 2019-05-18
 ### Fixed
 - Fix frozen string literal Rubocop violations
@@ -74,6 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#22]: https://github.com/shinesolutions/inspec-aem-aws/issues/22
 [#25]: https://github.com/shinesolutions/inspec-aem-aws/issues/25
 
+[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.14.1...HEAD
 [0.14.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.14.0...0.14.1
 [0.14.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.13.0...0.14.0
 [0.13.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.12.0...0.13.0
