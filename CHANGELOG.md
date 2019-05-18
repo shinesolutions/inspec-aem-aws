@@ -6,13 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix frozen string literal Rubocop violations
+
 ## [0.14.0] - 2019-04-23
 
 ### Changed
 - Upgrade ruby_aem_aws to 1.2.1
-
-### Fixed
-- Fix frozen string literal Rubocop violations
 
 ### Fixed
 - Fixed make targets for recovery test #20 #21
