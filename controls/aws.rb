@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'aws-snapshot-exists' do
   impact 1.0
   title 'Check if the snapshot exists on AWS'

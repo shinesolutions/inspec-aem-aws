@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'cloudwatch-component-ec2-metrics-exist' do
   impact 1.0
   title 'Check if component metrics exists'

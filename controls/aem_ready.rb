@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'author-instances-ready' do
   impact 1.0
   title 'Check if Author instances are ready'

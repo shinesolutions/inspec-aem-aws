@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'author-primary-cloudwatch-ec2-metrics-exist' do
   impact 1.0
   title 'Check if author-primary metrics exists'

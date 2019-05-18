@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'full-set-cloudwatch-alarms-exists' do
   impact 1.0
   title 'Check if full-set cloudwatch alarms exist'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'terminate-author-primary-instance' do
   impact 1.0
   title 'Terminate AEM Author Primary instance'
