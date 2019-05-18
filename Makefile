@@ -129,4 +129,7 @@ test-contenthealthcheck-alarm-state:
 	inspec exec . --show-progress --controls=\
 	  publish-wait-until-contenthealthcheck-alarm-ok
 
-.PHONY: ci clean deps lint test
+release:
+	rtk release
+
+.PHONY: ci clean deps lint test release
