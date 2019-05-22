@@ -184,10 +184,10 @@ def successful_provisioned_component?(task, client)
     next if tags.nil || tags.length < 1
 
     # Loop through the received tags
-    tag.each do | tag_keys |
+    tags.each do | tag |
       # If tag ComponentInitStatus exists
       # add ComponentInitStatus tag value to list
-      component_init_state_tag = tag_keys.value if tag_keys.key.eql?('ComponentInitStatus')
+      component_init_state_tag = tag.value if tag.key.eql?('ComponentInitStatus')
     end
 
     # If no tags found try again
@@ -226,10 +226,10 @@ def successful_provisioned_components?(task, client)
     # Loop through the found tags
     tags.each do | tag |
       # Loop through each instance tags
-      tag.each do | tag_keys |
+      tag.each do | tag_key |
         # If tag ComponentInitStatus exists
         # add ComponentInitStatus tag value to list
-        component_init_state_tag.push(tag_keys.value) if tag_keys.key.eql?('ComponentInitStatus')
+        component_init_state_tag.push(tag_key.value) if tag_key.key.eql?('ComponentInitStatus')
       end
     end
     # If no tags found try again
