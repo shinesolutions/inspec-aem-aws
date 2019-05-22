@@ -36,6 +36,10 @@ class Ready < Inspec.resource(1)
     instances_healthy?('ready', @client_aem_aws.author)
   end
 
+  def has_all_author_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.author)
+  end
+
   def has_all_publish_instances_ready?
     asg_healthy?('ready', @client_aem_aws.publish)
   end

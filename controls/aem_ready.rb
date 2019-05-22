@@ -9,6 +9,15 @@ control 'author-instances-ready' do
   end
 end
 
+control 'author-instances-provisioned-successful' do
+  impact 1.0
+  title 'Check if Author instances have been provisioned successful'
+  desc 'Check author provision state'
+  describe ready do
+    it { should have_all_author_been_successful_provision }
+  end
+end
+
 control 'publish-instances-ready' do
   impact 1.0
   title 'Check if Publish instances are ready'

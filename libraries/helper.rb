@@ -172,3 +172,85 @@ def wait_until_alarm_state_ok(alarm_name, client)
   end
   false
 end
+
+def successful_provisioned_component?(task, client)
+  conf = config_retries(task)
+  counter = 0
+  while counter < conf[:retry_counter]
+    # Get component tags
+    tags = client.get_tags
+
+    # If no tags received try again
+    next if tags.nil?
+
+    # Loop through the received tags
+    tag.each do | tag_keys |
+      # If tag ComponentInitStatus exists
+      # add ComponentInitStatus tag value to list
+      component_init_state_tag = tag_keys.value if tag_keys.key.eql?('ComponentInitStatus')
+    end
+
+    # If no tags found try again
+    next if component_init_state_tag.nil?
+
+    # Fail if provisioning failed on one instance
+    return false if component_init_state_tag.eql?('Failed')
+
+    # Try again if one instance is still in provisioning
+    next if component_init_state_tag.eql?('Running')
+
+    # return true if all instances who responsed
+    # with their tags successfully finished provisioning
+    return true if component_init_state_tag.eql?('Success')
+
+    sleep conf[:retry_wait_in_seconds]
+    counter += 1
+  end
+  false
+end
+
+def successful_provisioned_components?(task, client)
+  conf = config_retries(task)
+  counter = 0
+  while counter < conf[:retry_counter]
+    component_init_state_tag = []
+    component_init_state_success_count = 0
+    tags = client.get_tags
+
+    # If no tags received try again
+    next if tags.nil?
+
+    # Check how many instances responsed their tags
+    instances_count = tags.length
+
+    # Loop through the found tags
+    tags.each do | tag |
+      # Loop through each instance tags
+      tag.each do | tag_keys |
+        # If tag ComponentInitStatus exists
+        # add ComponentInitStatus tag value to list
+        component_init_state_tag.push(tag_keys.value) if tag_keys.key.eql?('ComponentInitStatus')
+      end
+    end
+    # If no tags found try again
+    next if component_init_state_tag.nil?
+
+    # Fail if provisioning failed on one instance
+    return false if component_init_state_tag.include?('Failed')
+
+    # Try again if one instance is still in provisioning
+    next if component_init_state_tag.include?('Running')
+
+    component_init_state_tag.each do | component_init_state_tag |
+      component_init_state_success_count += 1 if component_init_state_tag.eql?('Success')
+    end
+
+    # return true if all instances who responsed
+    # with their tags successfully finished provisioning
+    return true if component_init_state_success_count.eql?(instances_count)
+
+    sleep conf[:retry_wait_in_seconds]
+    counter += 1
+  end
+  false
+end
