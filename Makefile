@@ -18,20 +18,73 @@ test-integration:
 test:
 	inspec exec .
 
-test-readiness:
+test-readiness: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher test-successful-provisioning-chaosmonkey test-readiness-chaosmonkey
+
+test-recovery: test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey test-recovery-orchestrator
+
+test-readiness-author:
 	inspec exec . --show-progress --controls=\
-	  author-instances-ready \
-	  publish-instances-ready \
-	  author-dispatcher-instances-ready \
-	  publish-dispatcher-instances-ready \
-	  chaosmonkey-instances-ready \
+	  author-instances-ready
+
+test-readiness-publish:
+	inspec exec . --show-progress --controls=\
+	  publish-instances-ready
+
+test-readiness-author-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  author-dispatcher-instances-ready
+
+test-readiness-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  publish-dispatcher-instances-ready
+
+test-readiness-chaosmonkey:
+	inspec exec . --show-progress --controls=\
+	  chaosmonkey-instances-ready
+
+test-readiness-orchestrator:
+	inspec exec . --show-progress --controls=\
 	  orchestrator-instances-ready
+
+test-successful-provisioning-author:
+	inspec exec . --show-progress --controls=\
+	  author-instances-provisioned-successful
+
+test-successful-provisioning-author-primary:
+	inspec exec . --show-progress --controls=\
+	  author-primary-instance-provisioned-successful
+
+test-successful-provisioning-author-standby:
+	inspec exec . --show-progress --controls=\
+	  author-standby-instance-provisioned-successful
+
+test-successful-provisioning-publish:
+	inspec exec . --show-progress --controls=\
+	  publish-instances-provisioned-successful
+
+test-successful-provisioning-author-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  author-dispatcher-instances-provisioned-successful
+
+test-successful-provisioning-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  publish-dispatcher-instances-provisioned-successful
+
+test-successful-provisioning-orchestrator:
+	inspec exec . --show-progress --controls=\
+	  orchestrator-instance-provisioned-successful
+
+test-successful-provisioning-chaosmonkey:
+	inspec exec . --show-progress --controls=\
+	  chaosmonkey-instance-provisioned-successful
+
+test-successful-provisioning-author-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  author-publish-dispatcher-instance-provisioned-successful
 
 terminate-author-primary:
 	inspec exec . --show-progress --controls=\
 	  terminate-author-primary-instance
-
-test-recovery: test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey test-recovery-orchestrator
 
 test-recovery-author-dispatcher:
 	inspec exec . --show-progress --controls=\
