@@ -181,7 +181,7 @@ def successful_provisioned_component?(task, client)
     tags = client.get_tags
 
     # If no tags received try again
-    next if tags.nil?
+    next if tags.nil || tags.length < 1
 
     # Loop through the received tags
     tag.each do | tag_keys |
@@ -218,7 +218,7 @@ def successful_provisioned_components?(task, client)
     tags = client.get_tags
 
     # If no tags received try again
-    next if tags.nil?
+    next if tags.nil? || tags.length < 1
 
     # Check how many instances responsed their tags
     instances_count = tags.length
@@ -233,7 +233,7 @@ def successful_provisioned_components?(task, client)
       end
     end
     # If no tags found try again
-    next if component_init_state_tag.nil?
+    next if component_init_state_tag.length < 1
 
     # Fail if provisioning failed on one instance
     return false if component_init_state_tag.include?('Failed')
