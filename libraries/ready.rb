@@ -61,11 +61,11 @@ class Ready < Inspec.resource(1)
   end
 
   def has_author_primary_instance_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.author.author_primary)
+    successful_provisioned_component?('ready', @client_aem_aws.author.author_primary)
   end
 
   def has_author_standby_instance_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.author.author_standby)
+    successful_provisioned_component?('ready', @client_aem_aws.author.author_standby)
   end
 
   def has_all_publish_instances_been_successful_provision?
@@ -80,11 +80,11 @@ class Ready < Inspec.resource(1)
     successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher)
   end
 
-  def has_orchestrator_instance_been_successful_provision?
+  def has_orchestrator_instances_been_successful_provision?
     successful_provisioned_components?('ready', @client_aem_aws.orchestrator)
   end
 
-  def has_chaosmonkey_instance_been_successful_provision?
+  def has_chaosmonkey_instances_been_successful_provision?
     successful_provisioned_components?('ready', @client_aem_aws.chaos_monkey)
   end
 

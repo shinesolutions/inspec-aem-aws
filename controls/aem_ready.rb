@@ -108,21 +108,21 @@ control 'publish-dispatcher-instances-provisioned-successful' do
   end
 end
 
-control 'orchestrator-instance-provisioned-successful' do
+control 'orchestrator-instances-provisioned-successful' do
   impact 1.0
   title 'Check if Orchestrator instance has been provisioned successful'
   desc 'Check orchestrator provision state'
   describe ready do
-    it { should have_orchestrator_instance_been_successful_provision }
+    it { should have_orchestrator_instances_been_successful_provision }
   end
 end
 
-control 'chaosmonkey-instance-provisioned-successful' do
+control 'chaosmonkey-instances-provisioned-successful' do
   impact 1.0
   title 'Check if Chaosmonkey instance has been provisioned successful'
   desc 'Check chaosmonkey provision state'
   describe ready do
-    it { should have_chaosmonkey_instance_been_successful_provision }
+    it { should have_chaosmonkey_instances_been_successful_provision }
   end
 end
 

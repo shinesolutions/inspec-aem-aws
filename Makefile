@@ -72,11 +72,11 @@ test-successful-provisioning-publish-dispatcher:
 
 test-successful-provisioning-orchestrator:
 	inspec exec . --show-progress --controls=\
-	  orchestrator-instance-provisioned-successful
+	  orchestrator-instances-provisioned-successful
 
 test-successful-provisioning-chaosmonkey:
 	inspec exec . --show-progress --controls=\
-	  chaosmonkey-instance-provisioned-successful
+	  chaosmonkey-instances-provisioned-successful
 
 test-successful-provisioning-author-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
