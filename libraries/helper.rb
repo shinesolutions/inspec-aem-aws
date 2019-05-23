@@ -177,6 +177,8 @@ def successful_provisioned_component?(task, client)
   conf = config_retries(task)
   counter = 0
   while counter < conf[:retry_counter]
+    component_init_state_tag = nil
+
     # Get component tags
     tags = client.get_tags
 
