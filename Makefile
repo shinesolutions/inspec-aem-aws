@@ -1,7 +1,7 @@
 ci: clean deps lint
 
 clean:
-	rm -rf inspec.lock bin vendor
+	rm -rf Gemfile.lock inspec.lock bin vendor
 
 deps:
 	gem install bundler --version=1.17.3
