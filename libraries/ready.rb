@@ -91,6 +91,6 @@ class Ready < Inspec.resource(1)
   def has_author_publish_dispatcher_instance_been_successful_provision?
     # Since we have a direct client connection for consolidated
     # we don't need to pass any component name for the client
-    successful_provisioned_components?('ready', @client_aem_aws)
+    successful_provisioned_component?('ready', @client_aem_aws)
   end
 end
