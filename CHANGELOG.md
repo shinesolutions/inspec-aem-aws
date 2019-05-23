@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add make target to check provisioning state
+- Add make target to check provisioning state & readiness
+
+### Changed
+- Changed recovery make target to test orchestrator first
+- Undo changes to the readiness make target
+
+
+
 ## [0.15.0] - 2019-05-23
 ### Added
 - New Checks for checking EC2 Tag ComponentInitStatus
