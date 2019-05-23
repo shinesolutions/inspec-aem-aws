@@ -5,10 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2019-05-23
 
 ## [0.16.0] - 2019-05-23
-
 ### Added
 - Add make target to check provisioning state
 - Add make target to check provisioning state & readiness
@@ -16,8 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Changed recovery make target to test orchestrator first
 - Undo changes to the readiness make target
-
-
 
 ## [0.15.0] - 2019-05-23
 ### Added
@@ -98,7 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#22]: https://github.com/shinesolutions/inspec-aem-aws/issues/22
 [#25]: https://github.com/shinesolutions/inspec-aem-aws/issues/25
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.16.0...HEAD
+[1.0.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.16.0...1.0.0
 [0.16.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.15.0...0.16.0
 [0.15.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.14.1...0.15.0
 [0.14.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/0.14.0...0.14.1
