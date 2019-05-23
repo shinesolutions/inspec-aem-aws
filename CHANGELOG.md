@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Extend existing readiness check to check for the ec2 tag ComponentInitStatus
+- Add new Make targets to check provisioning state
+- Restructured Make targets for readiness check
+
+### Added
+- New Checks for checking EC2 Tag ComponentInitStatus
+
 ## [0.14.1] - 2019-05-18
 ### Fixed
 - Fix frozen string literal Rubocop violations

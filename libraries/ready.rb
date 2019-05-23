@@ -55,4 +55,42 @@ class Ready < Inspec.resource(1)
   def has_all_chaosmonkey_instances_ready?
     asg_healthy?('ready', @client_aem_aws.chaos_monkey)
   end
+
+  def has_all_author_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.author)
+  end
+
+  def has_author_primary_instance_been_successful_provision?
+    successful_provisioned_component?('ready', @client_aem_aws.author.author_primary)
+  end
+
+  def has_author_standby_instance_been_successful_provision?
+    successful_provisioned_component?('ready', @client_aem_aws.author.author_standby)
+  end
+
+  def has_all_publish_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.publish)
+  end
+
+  def has_all_author_dispatcher_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.author_dispatcher)
+  end
+
+  def has_all_publish_dispatcher_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher)
+  end
+
+  def has_orchestrator_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.orchestrator)
+  end
+
+  def has_chaosmonkey_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.chaos_monkey)
+  end
+
+  def has_author_publish_dispatcher_instance_been_successful_provision?
+    # Since we have a direct client connection for consolidated
+    # we don't need to pass any component name for the client
+    successful_provisioned_component?('ready', @client_aem_aws)
+  end
 end
