@@ -213,7 +213,7 @@ def successful_provisioned_components?(task, client)
   conf = config_retries(task)
   counter = 0
   while counter < conf[:retry_counter]
-    component_init_state_tag = []
+    component_init_state_tags = []
     component_init_state_success_count = 0
     tags = client.get_tags
 
@@ -229,14 +229,14 @@ def successful_provisioned_components?(task, client)
       tag.each do |tag_key|
         # If tag ComponentInitStatus exists
         # add ComponentInitStatus tag value to list
-        component_init_state_tag.push(tag_key.value) if tag_key.key.eql?('ComponentInitStatus')
+        component_init_state_tags.push(tag_key.value) if tag_key.key.eql?('ComponentInitStatus')
       end
     end
 
     # Fail if provisioning failed on one instance
-    return false if component_init_state_tag.include?('Failed')
+    return false if component_init_state_tags.include?('Failed')
 
-    component_init_state_tag.each do |component_init_state_tag|
+    component_init_state_tags.each do |component_init_state_tag|
       component_init_state_success_count += 1 if component_init_state_tag.eql?('Success')
     end
 
