@@ -232,14 +232,9 @@ def successful_provisioned_components?(task, client)
         component_init_state_tag.push(tag_key.value) if tag_key.key.eql?('ComponentInitStatus')
       end
     end
-    # If no tags found try again
-    next if component_init_state_tag.length < 1
 
     # Fail if provisioning failed on one instance
     return false if component_init_state_tag.include?('Failed')
-
-    # Try again if one instance is still in provisioning
-    next if component_init_state_tag.include?('Running')
 
     component_init_state_tag.each do | component_init_state_tag |
       component_init_state_success_count += 1 if component_init_state_tag.eql?('Success')
