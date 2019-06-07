@@ -32,6 +32,8 @@ test-provisioning-readiness-with-disabled-chaosmonkey: test-successful-provision
 
 test-recovery: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey
 
+test-recovery-with-disabled-chaosmonkey: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish
+
 test-readiness-author:
 	inspec exec . --show-progress --controls=\
 	  author-instances-ready
