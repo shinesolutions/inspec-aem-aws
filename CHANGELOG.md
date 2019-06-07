@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Add new make target to check FS stacks with disabled chaos monkey shinesolutions/aem-aws-stack-builder#290
 - Add new make target to support recovery test for FS stacks with disabled chaos monkey #32
 
 ## [1.0.0] - 2019-05-23
