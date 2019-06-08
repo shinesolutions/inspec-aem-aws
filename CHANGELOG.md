@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add new make target to check FS stacks with disabled chaos monkey shinesolutions/aem-aws-stack-builder#290
 - Add new make target to support recovery test for FS stacks with disabled chaos monkey #32
 
+### Removed
+- Remove ruby_aem dependency, no longer needed
+
 ## [1.0.0] - 2019-05-23
 
 ## [0.16.0] - 2019-05-23
