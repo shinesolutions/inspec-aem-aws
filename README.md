@@ -1,4 +1,5 @@
 [![Build Status](https://img.shields.io/travis/shinesolutions/inspec-aem-aws.svg)](http://travis-ci.org/shinesolutions/inspec-aem-aws)
+[![Known Vulnerabilities](https://snyk.io/test/github/shinesolutions/inspec-aem-aws/badge.svg)](https://snyk.io/test/github/shinesolutions/inspec-aem-aws)
 
 InSpec AEM-AWS
 ----------
