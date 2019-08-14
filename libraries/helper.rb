@@ -211,7 +211,7 @@ def successful_provisioned_component?(task, client)
   false
 end
 
-def successful_provisioned_components?(task, client, skip_component_failed_state=false)
+def successful_provisioned_components?(task, client, skip_component_failed_state = false)
   conf = config_retries(task)
   counter = 0
   while counter < conf[:retry_counter]
