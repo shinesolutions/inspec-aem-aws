@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed syntax error in method successful_provisioned_component #33
+
 ## [1.1.0] - 2019-06-08
 ### Added
 - Add new make target to check FS stacks with disabled chaos monkey shinesolutions/aem-aws-stack-builder#290

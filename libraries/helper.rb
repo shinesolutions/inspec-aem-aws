@@ -183,7 +183,7 @@ def successful_provisioned_component?(task, client)
     tags = client.get_tags
 
     # If no tags received try again
-    next if tags.nil || tags.empty?
+    next if tags.nil? || tags.empty?
 
     # Loop through the received tags
     tags.each do |tag|
