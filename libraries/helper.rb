@@ -211,7 +211,7 @@ def successful_provisioned_component?(task, client)
   false
 end
 
-def successful_provisioned_components?(task, client)
+def successful_provisioned_components?(task, client, skip_component_failed_state = false)
   conf = config_retries(task)
   counter = 0
   while counter < conf[:retry_counter]
@@ -236,7 +236,7 @@ def successful_provisioned_components?(task, client)
     end
 
     # Fail if provisioning failed on one instance
-    return false if component_init_state_tags.include?('Failed')
+    return false if component_init_state_tags.include?('Failed') && skip_component_failed_state.eql?(false)
 
     component_init_state_tags.each do |component_init_state_tag|
       component_init_state_success_count += 1 if component_init_state_tag.eql?('Success')
@@ -244,7 +244,7 @@ def successful_provisioned_components?(task, client)
 
     # return true if all instances who responsed
     # with their tags successfully finished provisioning
-    return true if component_init_state_success_count.eql?(instances_count)
+    return true if component_init_state_success_count.eql?(instances_count) && client.healthy_asg?
 
     sleep conf[:retry_wait_in_seconds]
     counter += 1
