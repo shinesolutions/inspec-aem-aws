@@ -69,7 +69,7 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_publish_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.publish)
+    successful_provisioned_components?('ready', @client_aem_aws.publish,true)
   end
 
   def has_all_author_dispatcher_instances_been_successful_provision?
@@ -77,7 +77,7 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_publish_dispatcher_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher)
+    successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher,true)
   end
 
   def has_orchestrator_instances_been_successful_provision?
