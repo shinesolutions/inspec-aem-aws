@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgrade ruby_aem_aws to 1.4.0
+
 ## [1.2.0] - 2019-08-14
 ### Fixed
 - Fixed syntax error in method successful_provisioned_component [#33]
