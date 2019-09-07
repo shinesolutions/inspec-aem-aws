@@ -1,10 +1,6 @@
 NetworkPacketsIn
-DiskWriteBytes
 NetworkPacketsOut
-DiskWriteOps
 NetworkIn
-DiskReadBytes
-DiskReadOps
 CPUUtilization
 NetworkOut
 StatusCheckFailed_Instance
