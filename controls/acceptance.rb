@@ -19,7 +19,7 @@ control 'cloudwatch-component-log-streams-exist' do
   describe acceptance do
     logfiles = File.readlines('conf/log_files-generic.txt')
     logfiles.each do |logfile|
-      it { should have_component_cloudwatch_log_streams(logfile.chomp, logfile.chomp) }
+      it { should have_component_cloudwatch_log_streams(logfile.chomp) }
     end
   end
 end

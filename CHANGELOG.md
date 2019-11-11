@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed inspec control `cloudwatch-component-log-streams-exist` #38
+
 ## [1.4.0] - 2019-09-07
 ### Removed
 - Remove DiskReadBytes, DiskReadOps, DiskWriteBytes, DiskWriteOps due to restrictive instance type requirement [#37]
