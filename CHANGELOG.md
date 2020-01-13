@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add disk space, cpu, and memory to AEM Full-Set alarms list
+
 ### Changed
 - Add Critical and Warning prefix to AEM Full-Set alarms list
 
