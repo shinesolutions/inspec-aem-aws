@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Add Critical and Warning prefix to AEM Full-Set alarms list
+
 ## [1.5.0] - 2019-11-26
 ### Fixed
 - Fixed inspec control `cloudwatch-component-log-streams-exist` [#38]
