@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Update CPU and Disk alarm names to be explicit about high load
+
 ## [1.7.0] - 2020-01-14
 ### Changed
 - Rename alarms list to use <severity>-<component>-<alarm> format
