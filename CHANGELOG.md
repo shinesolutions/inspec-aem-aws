@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Rename alarms list to use <severity>-<component>-<alarm> format
+
 ## [1.6.0] - 2020-01-13
 ### Added
 - Add disk space, cpu, and memory to AEM Full-Set alarms list
