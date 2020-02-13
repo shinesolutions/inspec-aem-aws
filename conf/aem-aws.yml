@@ -3,6 +3,7 @@ aws:
   secret_access_key:
   profile:
   s3_bucket:
+  region:
 aem:
   component:
   id:
