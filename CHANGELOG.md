@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Makefile clean target also removes Gemfile.lock file
+
+### Fixed
+- Fixed outdated Gemfile.lock file
+
 ## [1.8.0] - 2020-01-14
 ### Changed
 - Update CPU and Disk alarm names to be explicit about high load
