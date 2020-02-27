@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Increase readiness test retry to 6h
+- Increase recovery test retry to 6h
+
 ### Fixed
 - Fix typo in elb readiness check
 
