@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Increase readiness test retry to 6h
+- Increase recovery test retry to 6h
+
 ## [1.9.0] - 2020-02-17
 ### Changed
 - Makefile clean target also removes Gemfile.lock file
