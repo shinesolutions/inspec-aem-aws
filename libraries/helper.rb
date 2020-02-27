@@ -20,7 +20,11 @@ def read_config
   config_file = ENV['INSPEC_AEM_AWS_CONF'] || './conf/aem-aws.yml'
   config = YAML.load_file(config_file) if File.exist?(config_file)
   config_params = {}
-  %w[profile access_key_id secret_access_key s3_bucket].each { |field|
+
+  # a hotfix for ruby_aem_aws
+  config_params[:region] = config['aws']['region']
+
+  %w[profile access_key_id secret_access_key s3_bucket region].each { |field|
     env_field = format('aws_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[:"aws_#{field}"] = ENV[env_field]
