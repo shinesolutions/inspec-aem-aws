@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Increase readiness test retry to 6h
 - Increase recovery test retry to 6h
 
+### Fixed
+- Fix typo in elb readiness check
+
 ## [1.9.0] - 2020-02-17
 ### Changed
 - Makefile clean target also removes Gemfile.lock file

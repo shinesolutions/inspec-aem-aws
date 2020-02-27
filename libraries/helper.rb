@@ -95,7 +95,7 @@ def elb_instances_healthy?(task, client)
 
   counter = 0
   while counter < conf[:retry_counter]
-    return true if clieqnt.health_state.eql?(:ready)
+    return true if client.health_state.eql?(:ready)
 
     sleep conf[:retry_wait_in_seconds]
     counter += 1
