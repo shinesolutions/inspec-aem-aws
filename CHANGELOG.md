@@ -5,8 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
+## [1.10.0] - 2020-03-01
 ### Added
 - Add new configuration parameter `aws.region`[#42]
 
@@ -160,8 +159,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#34]: https://github.com/shinesolutions/inspec-aem-aws/issues/34
 [#37]: https://github.com/shinesolutions/inspec-aem-aws/issues/37
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
+[#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.9.0...HEAD
+[1.10.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.6.0...1.7.0
