@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Increase readiness test retry to 6h
 - Increase recovery test retry to 6h
+- Upgrade ruby_aem_aws to 1.5.0
 
 ### Fixed
 - Fix typo in elb readiness check
