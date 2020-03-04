@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Separate make targets within recovery test for termination & waiter [#47]
+- Update AOC component recovery test to wait until provisioning was successful [#46]
+
 ## [1.10.0] - 2020-03-01
 ### Added
 - Add new configuration parameter `aws.region`[#42]
