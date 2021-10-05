@@ -5,8 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
+## [2.0.1] - 2021-10-05
 ### Added
 - Add release-* GH Actions
 
@@ -170,7 +169,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/2.0.0...HEAD
+[2.0.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.10.0...2.0.0
 [1.10.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/1.8.0...1.9.0
