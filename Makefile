@@ -194,7 +194,15 @@ test-contenthealthcheck-alarm-state:
 	inspec exec . --show-progress --controls=\
 	  publish-wait-until-contenthealthcheck-alarm-ok
 
-release:
-	rtk release
+release-major:
+	rtk release --release-increment-type major
 
-.PHONY: ci clean deps lint test release
+release-minor:
+	rtk release --release-increment-type minor
+
+release-patch:
+	rtk release --release-increment-type patch
+
+release: release-minor
+
+.PHONY: ci clean deps lint test release release-major release-minor release-patch
