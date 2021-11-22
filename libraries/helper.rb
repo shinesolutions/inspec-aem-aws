@@ -24,7 +24,7 @@ def read_config
   # a hotfix for ruby_aem_aws
   config_params[:region] = config['aws']['region']
 
-  %w[profile access_key_id secret_access_key s3_bucket region].each { |field|
+  %w[profile access_key_id secret_access_key session_token s3_bucket region].each { |field|
     env_field = format('aws_%<field>s', field: field)
     if !ENV[env_field].nil?
       config_params[:"aws_#{field}"] = ENV[env_field]
