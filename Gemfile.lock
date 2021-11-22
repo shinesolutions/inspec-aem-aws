@@ -1283,7 +1283,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
-    ruby_aem_aws (2.1.0)
+    ruby_aem_aws (2.2.0)
       aws-sdk (= 3.0.1)
       retries (= 0.0.5)
       tuples (= 0.1.0)
@@ -1325,7 +1325,7 @@ PLATFORMS
 DEPENDENCIES
   inspec (= 1.51.6)
   rubocop (= 0.69.0)
-  ruby_aem_aws (= 2.1.0)
+  ruby_aem_aws (= 2.2.0)
   yaml-lint (= 0.0.10)
 
 BUNDLED WITH

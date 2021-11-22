@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add aws_session_token configuration property handling
 
+### Changed
+- Upgrade ruby_aem_aws to 2.2.0
+
 ## [2.1.0] - 2021-11-19
 ### Changed
 - Upgrade ruby_aem_aws to 2.1.0
