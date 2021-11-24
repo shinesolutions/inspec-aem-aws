@@ -7,4 +7,5 @@ source 'https://rubygems.org'
 gem 'inspec', '1.51.6'
 gem 'rubocop', '0.69.0', require: false
 gem 'ruby_aem_aws', '2.2.0'
+gem 'aws-sdk-cloudwatch', '1.57.0'
 gem 'yaml-lint', '0.0.10', require: false
