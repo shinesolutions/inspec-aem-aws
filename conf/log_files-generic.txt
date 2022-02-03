@@ -4,4 +4,3 @@
 /var/log/messages
 /var/log/shinesolutions/puppet-stack-init.log
 /var/log/secure
-/var/log/yum.log
