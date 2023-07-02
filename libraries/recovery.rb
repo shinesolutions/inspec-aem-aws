@@ -80,6 +80,30 @@ class Recovery < Inspec.resource(1)
     elb_healthy?('recovery', @client_aem_aws.publish_dispatcher)
   end
 
+  def has_terminated_all_preview_publish_instances?
+    @client_aem_aws.preview_publish.terminate_all_instances
+  end
+
+  def has_terminated_a_random_preview_publish_instance?
+    @client_aem_aws.preview_publish.terminate_random_instance
+  end
+
+  def able_to_recover_from_preview_publish_termination?
+    asg_healthy?('recovery', @client_aem_aws.preview_publish)
+  end
+
+  def has_terminated_all_preview_publish_dispatcher_instances?
+    @client_aem_aws.preview_publish_dispatcher.terminate_all_instances
+  end
+
+  def has_terminated_a_random_preview_publish_dispatcher_instance?
+    @client_aem_aws.preview_publish_dispatcher.terminate_random_instance
+  end
+
+  def able_to_recover_from_preview_publish_dispatcher_termination?
+    elb_healthy?('recovery', @client_aem_aws.preview_publish_dispatcher)
+  end
+
   def has_terminated_a_chaosmonkey_instance?
     @client_aem_aws.chaos_monkey.terminate_random_instance
   end

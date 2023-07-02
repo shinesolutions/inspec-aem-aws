@@ -73,12 +73,18 @@ def init_aws_aem_instance_client(client, conf)
   elsif conf[:aem_component] == 'publish'
     client = client.full_set(conf[:aem_stack_prefix])
     [client, client.publish]
+  elsif conf[:aem_component] == 'preview_publish'
+    client = client.full_set(conf[:aem_stack_prefix])
+    [client, client.preview_publish]
   elsif conf[:aem_component] == 'author-dispatcher'
     client = client.full_set(conf[:aem_stack_prefix])
     [client, client.author_dispatcher]
   elsif conf[:aem_component] == 'publish-dispatcher'
     client = client.full_set(conf[:aem_stack_prefix])
     [client, client.publish_dispatcher]
+  elsif conf[:aem_component] == 'preview-publish-dispatcher'
+    client = client.full_set(conf[:aem_stack_prefix])
+    [client, client.preview_publish_dispatcher]
   elsif conf[:aem_component] == 'chaos-monkey'
     client = client.full_set(conf[:aem_stack_prefix])
     [client, client.chaos_monkey]

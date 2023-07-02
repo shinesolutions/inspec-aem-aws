@@ -195,6 +195,27 @@ class Acceptance < Inspec.resource(1)
     @client_aem_aws.publish.component_log_event?(logfile_name, log_message)
   end
 
+  def has_preview_publish_cloudwatch_collectd_metrics?(metric_name)
+    namespace = 'collectd'
+    @client_aem_aws.preview_publish.component_metric?(namespace, metric_name)
+  end
+
+  def has_preview_publish_cloudwatch_ec2_metrics?(metric_name)
+    @client_aem_aws.preview_publish.component_ec2_metric?(metric_name)
+  end
+
+  def has_preview_publish_cloudwatch_loggroups?(logfile_name)
+    @client_aem_aws.preview_publish.component_loggroup?(logfile_name)
+  end
+
+  def has_preview_publish_cloudwatch_log_streams?(logfile_name)
+    @client_aem_aws.preview_publish.component_log_stream?(logfile_name)
+  env_field
+
+  def has_preview_publish_cloudwatch_log_event?(logfile_name, log_message)
+    @client_aem_aws.preview_publish.component_log_event?(logfile_name, log_message)
+  end
+
   def has_author_dispatcher_cloudwatch_ec2_metrics?(metric_name)
     @client_aem_aws.author_dispatcher.component_ec2_metric?(metric_name)
   end
@@ -225,6 +246,22 @@ class Acceptance < Inspec.resource(1)
 
   def has_publish_dispatcher_cloudwatch_log_event?(logfile_name, log_message)
     @client_aem_aws.publish_dispatcher.component_log_event?(logfile_name, log_message)
+  end
+
+  def has_preview_publish_dispatcher_cloudwatch_ec2_metrics?(metric_name)
+    @client_aem_aws.preview_publish_dispatcher.component_ec2_metric?(metric_name)
+  end
+
+  def has_preview_publish_dispatcher_cloudwatch_loggroups?(logfile_name)
+    @client_aem_aws.preview_publish_dispatcher.component_loggroup?(logfile_name)
+  end
+
+  def has_preview_publish_dispatcher_cloudwatch_log_streams?(logfile_name)
+    @client_aem_aws.preview_publish_dispatcher.component_log_stream?(logfile_name)
+  end
+
+  def has_preview_publish_dispatcher_cloudwatch_log_event?(logfile_name, log_message)
+    @client_aem_aws.preview_publish_dispatcher.component_log_event?(logfile_name, log_message)
   end
 
   def has_orchestrator_cloudwatch_ec2_metrics?(metric_name)
