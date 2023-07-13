@@ -64,38 +64,35 @@ def init_aem_aws_client(conf = {})
 end
 
 def init_aws_aem_instance_client(client, conf)
-  if conf[:aem_component] == 'author-primary'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.author.author_primary]
-  elsif conf[:aem_component] == 'author-standby'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.author.author_standby]
-  elsif conf[:aem_component] == 'publish'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.publish]
-  elsif conf[:aem_component] == 'preview_publish'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.preview_publish]
-  elsif conf[:aem_component] == 'author-dispatcher'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.author_dispatcher]
-  elsif conf[:aem_component] == 'publish-dispatcher'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.publish_dispatcher]
-  elsif conf[:aem_component] == 'preview-publish-dispatcher'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.preview_publish_dispatcher]
-  elsif conf[:aem_component] == 'chaos-monkey'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.chaos_monkey]
-  elsif conf[:aem_component] == 'orchestrator'
-    client = client.full_set(conf[:aem_stack_prefix])
-    [client, client.orchestrator]
-  elsif conf[:aem_component] == 'author-publish-dispatcher'
+  aem_component = conf[:aem_component]
+  case aem_component
+  when 'author-publish-dispatcher'
     client = client.consolidated(conf[:aem_stack_prefix])
     [client, client.author_publish_dispatcher]
   else
-    client.full_set(conf[:aem_stack_prefix])
+    client = client.full_set(conf[:aem_stack_prefix])
+    case aem_component
+    when 'author-primary'
+      [client, client.author.author_primary]
+    when 'author-standby'
+      [client, client.author.author_standby]
+    when 'publish'
+      [client, client.publish]
+    when 'preview_publish'
+      [client, client.preview_publish]
+    when 'author-dispatcher'
+      [client, client.author_dispatcher]
+    when 'publish-dispatcher'
+      [client, client.publish_dispatcher]
+    when 'preview-publish-dispatcher'
+      [client, client.preview_publish_dispatcher]
+    when 'chaos-monkey'
+      [client, client.chaos_monkey]
+    when 'orchestrator'
+      [client, client.orchestrator]
+    else
+      client
+    end
   end
 end
 
