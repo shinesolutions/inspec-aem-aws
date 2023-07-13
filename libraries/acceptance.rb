@@ -210,7 +210,7 @@ class Acceptance < Inspec.resource(1)
 
   def has_preview_publish_cloudwatch_log_streams?(logfile_name)
     @client_aem_aws.preview_publish.component_log_stream?(logfile_name)
-  env_field
+  end
 
   def has_preview_publish_cloudwatch_log_event?(logfile_name, log_message)
     @client_aem_aws.preview_publish.component_log_event?(logfile_name, log_message)
