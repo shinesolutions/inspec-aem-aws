@@ -78,7 +78,7 @@ def init_aws_aem_instance_client(client, conf)
       [client, client.author.author_standby]
     when 'publish'
       [client, client.publish]
-    when 'preview_publish'
+    when 'preview-publish'
       [client, client.preview_publish]
     when 'author-dispatcher'
       [client, client.author_dispatcher]
