@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added Preview Publish components tests #RS-160
 
+### Changed
+- Upgrade ruby_aem_aws to 3.0.0
+
 ## [2.6.0] - 2023-05-29
 ### Changed
 - Upgrade ruby_aem_aws to 2.4.0

@@ -6,5 +6,5 @@ source 'https://rubygems.org'
 #       https://github.com/inspec/train/pull/305
 gem 'inspec', '1.51.6'
 gem 'rubocop', '0.69.0', require: false
-gem 'ruby_aem_aws', '2.4.0'
+gem 'ruby_aem_aws', '3.0.0'
 gem 'yaml-lint', '0.0.10', require: false
