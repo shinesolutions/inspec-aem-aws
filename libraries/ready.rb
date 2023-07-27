@@ -40,12 +40,20 @@ class Ready < Inspec.resource(1)
     asg_healthy?('ready', @client_aem_aws.publish)
   end
 
+  def has_all_preview_publish_instances_ready?
+    asg_healthy?('ready', @client_aem_aws.preview_publish)
+  end
+
   def has_all_author_dispatcher_instances_ready?
     elb_healthy?('ready', @client_aem_aws.author_dispatcher)
   end
 
   def has_all_publish_dispatcher_instances_ready?
     elb_healthy?('ready', @client_aem_aws.publish_dispatcher)
+  end
+
+  def has_all_preview_publish_dispatcher_instances_ready?
+    elb_healthy?('ready', @client_aem_aws.preview_publish_dispatcher)
   end
 
   def has_all_orchestrator_instances_ready?
@@ -68,12 +76,20 @@ class Ready < Inspec.resource(1)
     successful_provisioned_components?('ready', @client_aem_aws.publish, true)
   end
 
+  def has_all_preview_publish_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.preview_publish, true)
+  end
+
   def has_all_author_dispatcher_instances_been_successful_provision?
     successful_provisioned_components?('ready', @client_aem_aws.author_dispatcher, true)
   end
 
   def has_all_publish_dispatcher_instances_been_successful_provision?
     successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher, true)
+  end
+
+  def has_all_preview_publish_dispatcher_instances_been_successful_provision?
+    successful_provisioned_components?('ready', @client_aem_aws.preview_publish_dispatcher, true)
   end
 
   def has_orchestrator_instances_been_successful_provision?

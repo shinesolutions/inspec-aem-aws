@@ -20,19 +20,35 @@ test:
 
 test-readiness: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher test-readiness-chaosmonkey
 
+test-readiness-with-enabled-preview-architecture: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher test-readiness-preview-publish test-readiness-preview-publish-dispatcher test-readiness-chaosmonkey
+
 test-readiness-with-disabled-chaosmonkey: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher
+
+test-readiness-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher test-readiness-preview-publish test-readiness-preview-publish-dispatcher
 
 test-provisioning: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher test-successful-provisioning-chaosmonkey
 
+test-provisioning-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher test-successful-provisioning-preview-publish test-successful-provisioning-preview-publish-dispatcher test-successful-provisioning-chaosmonkey
+
 test-provisioning-with-disabled-chaosmonkey: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher
+
+test-provisioning-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher test-successful-provisioning-preview-publish test-successful-provisioning-preview-publish-dispatcher
 
 test-provisioning-readiness: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher test-successful-provisioning-chaosmonkey test-readiness-chaosmonkey
 
+test-provisioning-readiness-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher test-successful-provisioning-preview-publish test-readiness-preview-publish test-successful-provisioning-preview-publish-dispatcher test-readiness-preview-publish-dispatcher test-successful-provisioning-chaosmonkey test-readiness-chaosmonkey
+
 test-provisioning-readiness-with-disabled-chaosmonkey: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher
+
+test-provisioning-readiness-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher test-successful-provisioning-preview-publish test-readiness-preview-publish test-successful-provisioning-preview-publish-dispatcher test-readiness-preview-publish-dispatcher 
 
 test-recovery: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-chaosmonkey
 
+test-recovery-with-enabled-preview-architecture: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-preview-publish-dispatcher test-recovery-preview-publish test-recovery-chaosmonkey
+
 test-recovery-with-disabled-chaosmonkey: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish
+
+test-recovery-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-preview-publish-dispatcher test-recovery-preview-publish
 
 test-readiness-author:
 	inspec exec . --show-progress --controls=\
@@ -42,6 +58,10 @@ test-readiness-publish:
 	inspec exec . --show-progress --controls=\
 	  publish-instances-ready
 
+test-readiness-preview-publish:
+	inspec exec . --show-progress --controls=\
+	  preview-publish-instances-ready
+
 test-readiness-author-dispatcher:
 	inspec exec . --show-progress --controls=\
 	  author-dispatcher-instances-ready
@@ -49,6 +69,10 @@ test-readiness-author-dispatcher:
 test-readiness-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
 	  publish-dispatcher-instances-ready
+
+test-readiness-preview-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  preview-publish-dispatcher-instances-ready
 
 test-readiness-chaosmonkey:
 	inspec exec . --show-progress --controls=\
@@ -74,6 +98,10 @@ test-successful-provisioning-publish:
 	inspec exec . --show-progress --controls=\
 	  publish-instances-provisioned-successful
 
+test-successful-provisioning-preview-publish:
+	inspec exec . --show-progress --controls=\
+	  preview-publish-instances-provisioned-successful
+
 test-successful-provisioning-author-dispatcher:
 	inspec exec . --show-progress --controls=\
 	  author-dispatcher-instances-provisioned-successful
@@ -81,6 +109,10 @@ test-successful-provisioning-author-dispatcher:
 test-successful-provisioning-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
 	  publish-dispatcher-instances-provisioned-successful
+
+test-successful-provisioning-preview-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+	  preview-publish-dispatcher-instances-provisioned-successful
 
 test-successful-provisioning-orchestrator:
 	inspec exec . --show-progress --controls=\
@@ -110,12 +142,26 @@ test-recovery-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
 		recover-from-publish-termination
 
+test-recovery-preview-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+		terminate-random-preview-publish-dispatcher-instance \
+		recover-from-preview-publish-dispatcher-termination
+	inspec exec . --show-progress --controls=\
+		recover-from-preview-publish-termination
+
 test-recovery-publish:
 	inspec exec . --show-progress --controls=\
 		terminate-random-publish-instance \
 		recover-from-publish-termination
 	inspec exec . --show-progress --controls=\
 		recover-from-publish-dispatcher-termination
+
+test-recovery-preview-publish:
+	inspec exec . --show-progress --controls=\
+		terminate-random-preview-publish-instance \
+		recover-from-preview-publish-termination
+	inspec exec . --show-progress --controls=\
+		recover-from-preview-publish-dispatcher-termination
 
 test-recovery-chaosmonkey:
 	inspec exec . --show-progress --controls=\
@@ -163,6 +209,16 @@ test-acceptance-publish:
 		publish-cloudwatch-log-streams-exist \
 		publish-finished-provisioning
 
+test-acceptance-preview-publish:
+	inspec exec . --show-progress --controls=\
+		preview-publish-cloudwatch-ec2-metrics-exist \
+		preview-publish-cloudwatch-collectd-generic-metric-exist \
+		preview-publish-generic-cloudwatch-loggroups-exist \
+		preview-publish-generic-cloudwatch-log-streams-exist \
+		preview-publish-cloudwatch-loggroups-exist \
+		preview-publish-cloudwatch-log-streams-exist \
+		preview-publish-finished-provisioning
+
 test-acceptance-author-dispatcher:
 	inspec exec . --show-progress --controls=\
 		author-dispatcher-cloudwatch-ec2-metrics-exist \
@@ -180,6 +236,15 @@ test-acceptance-publish-dispatcher:
 		publish-dispatcher-generic-cloudwatch-loggroups-exist \
 		publish-dispatcher-generic-cloudwatch-log-streams-exist \
 		publish-dispatcher-finished-provisioning
+
+test-acceptance-preview-publish-dispatcher:
+	inspec exec . --show-progress --controls=\
+		preview-publish-dispatcher-cloudwatch-ec2-metrics-exist \
+		preview-publish-dispatcher-cloudwatch-loggroups-exist \
+		preview-publish-dispatcher-cloudwatch-log-streams-exist \
+		preview-publish-dispatcher-generic-cloudwatch-loggroups-exist \
+		preview-publish-dispatcher-generic-cloudwatch-log-streams-exist \
+		preview-publish-dispatcher-finished-provisioning
 
 test-acceptance-orchestrator:
 	inspec exec . --show-progress --controls=\

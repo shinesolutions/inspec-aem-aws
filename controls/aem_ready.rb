@@ -18,6 +18,15 @@ control 'publish-instances-ready' do
   end
 end
 
+control 'preview-publish-instances-ready' do
+  impact 1.0
+  title 'Check if Preview Publish instances are ready'
+  desc 'Check if Preview Publish instances are ready'
+  describe ready do
+    it { should have_all_preview_publish_instances_ready }
+  end
+end
+
 control 'author-dispatcher-instances-ready' do
   impact 1.0
   title 'Check if Author Dispatcher instances are ready'
@@ -33,6 +42,15 @@ control 'publish-dispatcher-instances-ready' do
   desc 'Check if Publish Dispatcher instances are ready'
   describe ready do
     it { should have_all_publish_dispatcher_instances_ready }
+  end
+end
+
+control 'preview-publish-dispatcher-instances-ready' do
+  impact 1.0
+  title 'Check if Preview Publish Dispatcher instances are ready'
+  desc 'Check if Preview Publish Dispatcher instances are ready'
+  describe ready do
+    it { should have_all_preview_publish_dispatcher_instances_ready }
   end
 end
 
@@ -90,6 +108,15 @@ control 'publish-instances-provisioned-successful' do
   end
 end
 
+control 'preview-publish-instances-provisioned-successful' do
+  impact 1.0
+  title 'Check if Preview Publish instances has been provisioned successful'
+  desc 'Check Preview publish provision state'
+  describe ready do
+    it { should have_all_preview_publish_instances_been_successful_provision }
+  end
+end
+
 control 'author-dispatcher-instances-provisioned-successful' do
   impact 1.0
   title 'Check if Author-Dispatcher instances has been provisioned successful'
@@ -105,6 +132,15 @@ control 'publish-dispatcher-instances-provisioned-successful' do
   desc 'Check publish-dispatcher provision state'
   describe ready do
     it { should have_all_publish_dispatcher_instances_been_successful_provision }
+  end
+end
+
+control 'preview-publish-dispatcher-instances-provisioned-successful' do
+  impact 1.0
+  title 'Check if Preview Publish-Dispatcher instances has been provisioned successful'
+  desc 'Check Preview publish-dispatcher provision state'
+  describe ready do
+    it { should have_all_preview_publish_dispatcher_instances_been_successful_provision }
   end
 end
 
