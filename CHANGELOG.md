@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
 ## [3.0.1] - 2025-02-10
 ### Changed
 - Removed Chaos Monkey alarm check for FullSet acceptance tests ('test-acceptance-full-set')
@@ -211,6 +213,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
+[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/3.0.1...HEAD
 [3.0.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/2.6.0...3.0.0
 [2.6.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/2.5.0...2.6.0
