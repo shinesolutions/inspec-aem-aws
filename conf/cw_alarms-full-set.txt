@@ -27,13 +27,6 @@ Warning-AuthorStandby-CPUHighAlarm
 Critical-AuthorStandby-CPUHighAlarm
 Warning-AuthorStandby-MemoryHighAlarm
 Critical-AuthorStandby-MemoryHighAlarm
-Warning-ChaosMonkey-NoInstanceAlarm
-Warning-ChaosMonkey-RootDiskSpaceHighAlarm
-Critical-ChaosMonkey-RootDiskSpaceHighAlarm
-Warning-ChaosMonkey-CPUHighAlarm
-Critical-ChaosMonkey-CPUHighAlarm
-Warning-ChaosMonkey-MemoryHighAlarm
-Critical-ChaosMonkey-MemoryHighAlarm
 Critical-Orchestrator-NoInstanceAlarm
 Warning-Orchestrator-RootDiskSpaceHighAlarm
 Critical-Orchestrator-RootDiskSpaceHighAlarm
