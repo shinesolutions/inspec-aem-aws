@@ -2,5 +2,4 @@
 /var/log/cron
 /var/log/maillog
 /var/log/messages
-/var/log/shinesolutions/puppet-stack-init.log
 /var/log/secure
