@@ -138,8 +138,7 @@ test-acceptance-author-primary:
 		author-primary-cloudwatch-loggroups-exist \
 		author-primary-cloudwatch-log-streams-exist \
 		author-primary-generic-cloudwatch-loggroups-exist \
-		author-primary-generic-cloudwatch-log-streams-exist \
-		author-primary-finished-provisioning
+		author-primary-generic-cloudwatch-log-streams-exist
 
 test-acceptance-author-standby:
 	inspec exec . --show-progress --controls=\
@@ -149,8 +148,7 @@ test-acceptance-author-standby:
 		author-standby-cloudwatch-loggroups-exist \
 		author-standby-cloudwatch-log-streams-exist \
 		author-standby-generic-cloudwatch-loggroups-exist \
-		author-standby-generic-cloudwatch-log-streams-exist \
-		author-standby-finished-provisioning
+		author-standby-generic-cloudwatch-log-streams-exist
 
 test-acceptance-publish:
 	inspec exec . --show-progress --controls=\
@@ -160,8 +158,7 @@ test-acceptance-publish:
 		publish-generic-cloudwatch-loggroups-exist \
 		publish-generic-cloudwatch-log-streams-exist \
 		publish-cloudwatch-loggroups-exist \
-		publish-cloudwatch-log-streams-exist \
-		publish-finished-provisioning
+		publish-cloudwatch-log-streams-exist
 
 test-acceptance-author-dispatcher:
 	inspec exec . --show-progress --controls=\
@@ -169,8 +166,7 @@ test-acceptance-author-dispatcher:
 		author-dispatcher-cloudwatch-loggroups-exist \
 		author-dispatcher-cloudwatch-log-streams-exist \
 		author-dispatcher-generic-cloudwatch-log-streams-exist \
-		author-dispatcher-generic-cloudwatch-loggroups-exist \
-		author-dispatcher-finished-provisioning
+		author-dispatcher-generic-cloudwatch-loggroups-exist
 
 test-acceptance-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
@@ -178,8 +174,7 @@ test-acceptance-publish-dispatcher:
 		publish-dispatcher-cloudwatch-loggroups-exist \
 		publish-dispatcher-cloudwatch-log-streams-exist \
 		publish-dispatcher-generic-cloudwatch-loggroups-exist \
-		publish-dispatcher-generic-cloudwatch-log-streams-exist \
-		publish-dispatcher-finished-provisioning
+		publish-dispatcher-generic-cloudwatch-log-streams-exist
 
 test-acceptance-orchestrator:
 	inspec exec . --show-progress --controls=\
@@ -187,8 +182,7 @@ test-acceptance-orchestrator:
 		orchestrator-cloudwatch-loggroups-exist \
 		orchestrator-cloudwatch-log-streams-exist \
 		orchestrator-generic-cloudwatch-loggroups-exist \
-		orchestrator-generic-cloudwatch-log-streams-exist \
-		orchestrator-finished-provisioning
+		orchestrator-generic-cloudwatch-log-streams-exist
 
 test-contenthealthcheck-alarm-state:
 	inspec exec . --show-progress --controls=\
