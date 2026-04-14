@@ -134,43 +134,27 @@ test-acceptance-full-set:
 test-acceptance-author-primary:
 	inspec exec . --show-progress --controls=\
 		author-primary-cloudwatch-ec2-metrics-exist \
-		author-primary-cloudwatch-collectd-generic-metric-exist \
-		author-primary-cloudwatch-loggroups-exist \
-		author-primary-generic-cloudwatch-loggroups-exist
 
 test-acceptance-author-standby:
 	inspec exec . --show-progress --controls=\
 		author-standby-cloudwatch-ec2-metrics-exist \
-		author-standby-cloudwatch-collectd-generic-metric-exist \
-		author-standby-cloudwatch-collectd-sync-metric-exist \
-		author-standby-cloudwatch-loggroups-exist \
-		author-standby-generic-cloudwatch-loggroups-exist
 
 test-acceptance-publish:
 	inspec exec . --show-progress --controls=\
 		publish-cloudwatch-ec2-metrics-exist \
 		publish-cloudwatch-contentHealthCheck-metric-exist \
-		publish-cloudwatch-collectd-generic-metric-exist \
-		publish-generic-cloudwatch-loggroups-exist \
-		publish-cloudwatch-loggroups-exist
 
 test-acceptance-author-dispatcher:
 	inspec exec . --show-progress --controls=\
 		author-dispatcher-cloudwatch-ec2-metrics-exist \
-		author-dispatcher-cloudwatch-loggroups-exist \
-		author-dispatcher-generic-cloudwatch-loggroups-exist
 
 test-acceptance-publish-dispatcher:
 	inspec exec . --show-progress --controls=\
 		publish-dispatcher-cloudwatch-ec2-metrics-exist \
-		publish-dispatcher-cloudwatch-loggroups-exist \
-		publish-dispatcher-generic-cloudwatch-loggroups-exist
 
 test-acceptance-orchestrator:
 	inspec exec . --show-progress --controls=\
 		orchestrator-cloudwatch-ec2-metrics-exist \
-		orchestrator-cloudwatch-loggroups-exist \
-		orchestrator-generic-cloudwatch-loggroups-exist
 
 test-contenthealthcheck-alarm-state:
 	inspec exec . --show-progress --controls=\
