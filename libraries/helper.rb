@@ -148,7 +148,7 @@ def asg_healthy?(task, client)
   false
 end
 
-def get_alarm_state(alarm_name, client)
+def get_alarm_state?(alarm_name, client)
   conf = config_retries(alarm_name)
   counter = 0
   while counter < conf[:retry_counter]
@@ -167,7 +167,7 @@ def get_alarm_state(alarm_name, client)
   false
 end
 
-def wait_until_alarm_state_ok(alarm_name, client)
+def wait_until_alarm_state_ok?(alarm_name, client)
   conf = config_retries(alarm_name)
   counter = 0
   while counter < conf[:retry_counter]
