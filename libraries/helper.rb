@@ -27,7 +27,7 @@ def read_config
   %w[profile access_key_id secret_access_key session_token s3_bucket region].each { |field|
     env_field = format('aws_%<field>s', field: field)
     if !ENV[env_field].nil?
-      config_params[:"aws_#{field}"] = ENV[env_field]
+      config_params[:"aws_#{field}"] = ENV.fetch(env_field, nil)
     elsif !config.nil? && !config['aws'][field].nil?
       config_params[:"aws_#{field}"] = config['aws'][field]
     end
@@ -36,7 +36,7 @@ def read_config
   %w[stack_prefix component id].each { |field|
     env_field = format('aem_%<field>s', field: field)
     if !ENV[env_field].nil?
-      config_params[:"aem_#{field}"] = ENV[env_field]
+      config_params[:"aem_#{field}"] = ENV.fetch(env_field, nil)
     elsif !config.nil? && !config['aem'][field].nil?
       config_params[:"aem_#{field}"] = config['aem'][field]
     end
