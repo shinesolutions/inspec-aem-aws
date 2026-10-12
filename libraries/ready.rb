@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require_relative './helper'
+require_relative 'helper'
 
 # Aws class contains checks for AEM instance resource
 class Ready < Inspec.resource(1)
@@ -25,6 +25,7 @@ class Ready < Inspec.resource(1)
   "
 
   def initialize
+    super
     conf = read_config
     client = init_aem_aws_client(conf)
     @client_aem_aws = init_aws_aem_instance_client(client, conf)

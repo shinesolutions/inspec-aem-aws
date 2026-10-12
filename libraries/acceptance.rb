@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require_relative './helper'
+require_relative 'helper'
 
 # Aws class contains checks for AEM instance resource
 class Acceptance < Inspec.resource(1)
@@ -25,6 +25,7 @@ class Acceptance < Inspec.resource(1)
   "
 
   def initialize
+    super
     conf = read_config
     client = init_aem_aws_client(conf)
     @client_sm = client.stack_manager(conf[:aem_stack_prefix])
@@ -140,7 +141,7 @@ class Acceptance < Inspec.resource(1)
     end
     instances_with_metric = instances_with_metric.count
 
-    return true unless instances_with_metric < instances_found
+    true unless instances_with_metric < instances_found
   end
 
   def has_contenthealthcheck_cloudwatch_alarm_state_ok?
@@ -164,7 +165,7 @@ class Acceptance < Inspec.resource(1)
     end
     instances_with_metric = instances_with_metric.count
 
-    return true unless instances_with_metric < instances_found
+    true unless instances_with_metric < instances_found
   end
 
   def has_wait_until_contenthealthcheck_cloudwatch_alarm_state_ok?
@@ -188,7 +189,7 @@ class Acceptance < Inspec.resource(1)
     end
     instances_with_metric = instances_with_metric.count
 
-    return true unless instances_with_metric < instances_found
+    true unless instances_with_metric < instances_found
   end
 
   def has_publish_cloudwatch_log_event?(logfile_name, log_message)

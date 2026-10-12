@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require_relative './helper'
+require_relative 'helper'
 
 # Aws class contains checks for AEM instance resource
 class Aws < Inspec.resource(1)
@@ -25,6 +25,7 @@ class Aws < Inspec.resource(1)
   "
 
   def initialize
+    super
     conf = read_config
     client = init_aem_aws_client(conf)
     @client_sm = client.stack_manager(conf[:aem_stack_prefix])
@@ -34,11 +35,11 @@ class Aws < Inspec.resource(1)
       s3_bucket: conf[:aws_s3_bucket],
       stack_prefix: conf[:aem_stack_prefix],
       component: conf[:aem_component],
-      snapshot_id: ENV['snapshot_id'],
-      export_package_group: ENV['package_group'],
-      export_package_name: ENV['package_name'],
-      export_package_version: ENV['package_version'],
-      export_package_backup_path: ENV['backup_path']
+      snapshot_id: ENV.fetch('snapshot_id', nil),
+      export_package_group: ENV.fetch('package_group', nil),
+      export_package_name: ENV.fetch('package_name', nil),
+      export_package_version: ENV.fetch('package_version', nil),
+      export_package_backup_path: ENV.fetch('backup_path', nil)
     }
   end
 
