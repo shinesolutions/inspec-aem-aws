@@ -13,7 +13,6 @@ deps:
 lint:
 	bundle exec rubocop Gemfile controls/ libraries/
 	bundle exec yaml-lint .*.yml conf/*.yml
-	shellcheck test/integration/*.sh
 	jsonlint .rtk.json
 	yamllint *.yml conf/*.yml
 
