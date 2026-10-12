@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'rubocop', '1.90.0', require: false
-gem 'ruby_aem_aws', '3.0.0'
+gem 'ruby_aem_aws', '4.0.2'
 gem 'yaml-lint', '0.1.2', require: false
 
 # Pull standard-named 'inspec' directly from Cinc's open-source gem mirror
