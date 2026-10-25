@@ -1,3 +1,8 @@
+# Run InSpec through Bundler when the bundle is installed (make deps creates Gemfile.lock),
+# e.g. in aem-test-suite. Otherwise use the inspec on the PATH: the aem-aws-stack-provisioner
+# scripts run these targets on AEM instances, which only have the AMI's own gems and no bundle.
+INSPEC ?= $(if $(wildcard Gemfile.lock),bundle exec inspec,inspec)
+
 ci: clean deps lint
 
 clean:
@@ -17,10 +22,10 @@ lint:
 	yamllint *.yml conf/*.yml
 
 test-integration:
-	inspec check .
+	$(INSPEC) check .
 
 test:
-	inspec exec .
+	$(INSPEC) exec .
 
 test-readiness: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher test-readiness-chaosmonkey
 
@@ -55,134 +60,134 @@ test-recovery-with-disabled-chaosmonkey: test-recovery-orchestrator test-recover
 test-recovery-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-preview-publish-dispatcher test-recovery-preview-publish
 
 test-readiness-author:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-instances-ready
 
 test-readiness-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  publish-instances-ready
 
 test-readiness-preview-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  preview-publish-instances-ready
 
 test-readiness-author-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-dispatcher-instances-ready
 
 test-readiness-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  publish-dispatcher-instances-ready
 
 test-readiness-preview-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  preview-publish-dispatcher-instances-ready
 
 test-readiness-chaosmonkey:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  chaosmonkey-instances-ready
 
 test-readiness-orchestrator:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  orchestrator-instances-ready
 
 test-successful-provisioning-author:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-instances-provisioned-successful
 
 test-successful-provisioning-author-primary:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-primary-instance-provisioned-successful
 
 test-successful-provisioning-author-standby:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-standby-instance-provisioned-successful
 
 test-successful-provisioning-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  publish-instances-provisioned-successful
 
 test-successful-provisioning-preview-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  preview-publish-instances-provisioned-successful
 
 test-successful-provisioning-author-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-dispatcher-instances-provisioned-successful
 
 test-successful-provisioning-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  publish-dispatcher-instances-provisioned-successful
 
 test-successful-provisioning-preview-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  preview-publish-dispatcher-instances-provisioned-successful
 
 test-successful-provisioning-orchestrator:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  orchestrator-instances-provisioned-successful
 
 test-successful-provisioning-chaosmonkey:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  chaosmonkey-instances-provisioned-successful
 
 test-successful-provisioning-author-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  author-publish-dispatcher-instance-provisioned-successful
 
 terminate-author-primary:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  terminate-author-primary-instance
 
 test-recovery-author-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  terminate-random-author-dispatcher-instance \
 		recover-from-author-dispatcher-termination
 
 test-recovery-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-random-publish-dispatcher-instance \
 		recover-from-publish-dispatcher-termination
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		recover-from-publish-termination
 
 test-recovery-preview-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-random-preview-publish-dispatcher-instance \
 		recover-from-preview-publish-dispatcher-termination
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		recover-from-preview-publish-termination
 
 test-recovery-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-random-publish-instance \
 		recover-from-publish-termination
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		recover-from-publish-dispatcher-termination
 
 test-recovery-preview-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-random-preview-publish-instance \
 		recover-from-preview-publish-termination
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		recover-from-preview-publish-dispatcher-termination
 
 test-recovery-chaosmonkey:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-chaosmonkey-instance \
 		recover-from-chaosmonkey-termination
 
 test-recovery-orchestrator:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		terminate-orchestrator-instance \
 		recover-from-orchestrator-termination
 
 test-acceptance-full-set:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  full-set-cloudwatch-alarms-exists
 
 test-acceptance-author-primary:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		author-primary-cloudwatch-ec2-metrics-exist \
 		author-primary-cloudwatch-collectd-generic-metric-exist \
 		author-primary-cloudwatch-loggroups-exist \
@@ -192,7 +197,7 @@ test-acceptance-author-primary:
 		author-primary-finished-provisioning
 
 test-acceptance-author-standby:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		author-standby-cloudwatch-ec2-metrics-exist \
 		author-standby-cloudwatch-collectd-generic-metric-exist \
 		author-standby-cloudwatch-collectd-sync-metric-exist \
@@ -203,7 +208,7 @@ test-acceptance-author-standby:
 		author-standby-finished-provisioning
 
 test-acceptance-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		publish-cloudwatch-ec2-metrics-exist \
 		publish-cloudwatch-contentHealthCheck-metric-exist \
 		publish-cloudwatch-collectd-generic-metric-exist \
@@ -214,7 +219,7 @@ test-acceptance-publish:
 		publish-finished-provisioning
 
 test-acceptance-preview-publish:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		preview-publish-cloudwatch-ec2-metrics-exist \
 		preview-publish-cloudwatch-collectd-generic-metric-exist \
 		preview-publish-generic-cloudwatch-loggroups-exist \
@@ -224,7 +229,7 @@ test-acceptance-preview-publish:
 		preview-publish-finished-provisioning
 
 test-acceptance-author-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		author-dispatcher-cloudwatch-ec2-metrics-exist \
 		author-dispatcher-cloudwatch-loggroups-exist \
 		author-dispatcher-cloudwatch-log-streams-exist \
@@ -233,7 +238,7 @@ test-acceptance-author-dispatcher:
 		author-dispatcher-finished-provisioning
 
 test-acceptance-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		publish-dispatcher-cloudwatch-ec2-metrics-exist \
 		publish-dispatcher-cloudwatch-loggroups-exist \
 		publish-dispatcher-cloudwatch-log-streams-exist \
@@ -242,7 +247,7 @@ test-acceptance-publish-dispatcher:
 		publish-dispatcher-finished-provisioning
 
 test-acceptance-preview-publish-dispatcher:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		preview-publish-dispatcher-cloudwatch-ec2-metrics-exist \
 		preview-publish-dispatcher-cloudwatch-loggroups-exist \
 		preview-publish-dispatcher-cloudwatch-log-streams-exist \
@@ -251,7 +256,7 @@ test-acceptance-preview-publish-dispatcher:
 		preview-publish-dispatcher-finished-provisioning
 
 test-acceptance-orchestrator:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 		orchestrator-cloudwatch-ec2-metrics-exist \
 		orchestrator-cloudwatch-loggroups-exist \
 		orchestrator-cloudwatch-log-streams-exist \
@@ -260,7 +265,7 @@ test-acceptance-orchestrator:
 		orchestrator-finished-provisioning
 
 test-contenthealthcheck-alarm-state:
-	inspec exec . --show-progress --controls=\
+	$(INSPEC) exec . --show-progress --controls=\
 	  publish-wait-until-contenthealthcheck-alarm-ok
 
 release-major:
