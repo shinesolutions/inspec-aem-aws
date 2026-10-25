@@ -74,23 +74,23 @@ class Ready < Inspec.resource(1)
   end
 
   def has_all_publish_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.publish, true)
+    successful_provisioned_components?('ready', @client_aem_aws.publish, skip_component_failed_state: true)
   end
 
   def has_all_preview_publish_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.preview_publish, true)
+    successful_provisioned_components?('ready', @client_aem_aws.preview_publish, skip_component_failed_state: true)
   end
 
   def has_all_author_dispatcher_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.author_dispatcher, true)
+    successful_provisioned_components?('ready', @client_aem_aws.author_dispatcher, skip_component_failed_state: true)
   end
 
   def has_all_publish_dispatcher_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher, true)
+    successful_provisioned_components?('ready', @client_aem_aws.publish_dispatcher, skip_component_failed_state: true)
   end
 
   def has_all_preview_publish_dispatcher_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.preview_publish_dispatcher, true)
+    successful_provisioned_components?('ready', @client_aem_aws.preview_publish_dispatcher, skip_component_failed_state: true)
   end
 
   def has_orchestrator_instances_been_successful_provision?

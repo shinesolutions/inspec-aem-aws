@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Run inspec via bundle exec so the bundled gems are used, fixing Gem::ConflictError on ruby_aem_aws aws-sdk dependencies
+- Run inspec without Bundler when the bundle isn't installed (no Gemfile.lock), as on the AEM instances where aem-aws-stack-provisioner runs the Makefile targets and Bundler failed with Bundler::GemNotFound; set INSPEC to override the command
+- Fix the publish, preview-publish, author-dispatcher, publish-dispatcher and preview-publish-dispatcher provisioning readiness checks failing with "wrong number of arguments (given 3, expected 2)"
 
 ## [4.0.0] - 2026-10-12
 ### Added
