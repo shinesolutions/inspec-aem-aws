@@ -105,17 +105,19 @@ control 'author-standby-cloudwatch-collectd-generic-metric-exist' do
   end
 end
 
-control 'author-standby-cloudwatch-collectd-sync-metric-exist' do
-  impact 1.0
-  title 'Check if author-standby collectd sync metric exists'
-  desc 'collectd metrics should be available'
-  describe acceptance do
-    metrics = File.readlines('conf/cw_metric_collectd-author-standby.txt')
-    metrics.each do |metric|
-      it { should have_author_standby_cloudwatch_collectd_metrics(metric.chomp) }
-    end
-  end
-end
+# TODO: temporarily disabled. The sync metric comes from collectd's GenericJMX plugin, and Amazon Linux 2023
+# has no collectd, so the metric never exists there. Re-enable it once the metric is published without collectd.
+# control 'author-standby-cloudwatch-collectd-sync-metric-exist' do
+#   impact 1.0
+#   title 'Check if author-standby collectd sync metric exists'
+#   desc 'collectd metrics should be available'
+#   describe acceptance do
+#     metrics = File.readlines('conf/cw_metric_collectd-author-standby.txt')
+#     metrics.each do |metric|
+#       it { should have_author_standby_cloudwatch_collectd_metrics(metric.chomp) }
+#     end
+#   end
+# end
 
 control 'author-standby-cloudwatch-loggroups-exist' do
   impact 1.0

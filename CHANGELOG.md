@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Remove checking for loggroup/logstream /var/log/maillog, which stays empty on Amazon Linux 2023 without a mail server, so the CloudWatch agent never creates them
+- Temporarily disable the author-standby-cloudwatch-collectd-sync-metric-exist check, as Amazon Linux 2023 has no collectd to publish the GenericJMX.delay.seconds_since_last_success metric
 
 ## [4.1.0] - 2026-10-26
 ### Fixed
