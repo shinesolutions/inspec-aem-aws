@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.1.1] - 2026-10-27
+## [4.2.0] - 2026-10-27
 ### Changed
 - Remove checking for loggroup/logstream /var/log/maillog, which stays empty on Amazon Linux 2023 without a mail server, so the CloudWatch agent never creates them
 - Temporarily disable the author-standby-cloudwatch-collectd-sync-metric-exist check, as Amazon Linux 2023 has no collectd to publish the GenericJMX.delay.seconds_since_last_success metric
@@ -237,7 +237,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[4.1.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.1.0...4.1.1
+[4.2.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/3.0.1...4.0.0
 [3.0.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/3.0.0...3.0.1
