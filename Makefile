@@ -196,13 +196,11 @@ test-acceptance-author-primary:
 		author-primary-generic-cloudwatch-log-streams-exist \
 		author-primary-finished-provisioning
 
-# TODO: author-standby-cloudwatch-collectd-sync-metric-exist is temporarily disabled (see its commented-out control
-# in controls/acceptance_author.rb). Add it back after author-standby-cloudwatch-collectd-generic-metric-exist.
-# A commented-out line can't stay inside the continued command, as # would comment out the rest of it.
 test-acceptance-author-standby:
 	$(INSPEC) exec . --show-progress --controls=\
 		author-standby-cloudwatch-ec2-metrics-exist \
 		author-standby-cloudwatch-collectd-generic-metric-exist \
+		author-standby-cloudwatch-collectd-sync-metric-exist \
 		author-standby-cloudwatch-loggroups-exist \
 		author-standby-cloudwatch-log-streams-exist \
 		author-standby-generic-cloudwatch-loggroups-exist \
