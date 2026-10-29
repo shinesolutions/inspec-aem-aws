@@ -171,7 +171,7 @@ def wait_until_alarm_state_ok?(alarm_name, client)
   conf = config_retries(alarm_name)
   counter = 0
   while counter < conf[:retry_counter]
-    response = get_alarm_state(alarm_name, client)
+    response = get_alarm_state?(alarm_name, client)
     return true if response.eql? true
 
     counter += 1
