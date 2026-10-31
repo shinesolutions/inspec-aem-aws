@@ -159,7 +159,7 @@ class Acceptance < Inspec.resource(1)
 
       alarm_name = "contentHealthCheck-#{instance_id}"
 
-      response = get_alarm_state(alarm_name, client)
+      response = get_alarm_state?(alarm_name, client)
 
       instances_with_metric.push(instance_id) if response.eql? true
     end
@@ -183,7 +183,7 @@ class Acceptance < Inspec.resource(1)
 
       alarm_name = "contentHealthCheck-#{instance_id}"
 
-      response = wait_until_alarm_state_ok(alarm_name, client)
+      response = wait_until_alarm_state_ok?(alarm_name, client)
 
       instances_with_metric.push(instance_id) if response.eql? true
     end
