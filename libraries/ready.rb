@@ -61,10 +61,6 @@ class Ready < Inspec.resource(1)
     asg_healthy?('ready', @client_aem_aws.orchestrator)
   end
 
-  def has_all_chaosmonkey_instances_ready?
-    asg_healthy?('ready', @client_aem_aws.chaos_monkey)
-  end
-
   def has_author_primary_instance_been_successful_provision?
     successful_provisioned_component?('ready', @client_aem_aws.author.author_primary)
   end
@@ -95,10 +91,6 @@ class Ready < Inspec.resource(1)
 
   def has_orchestrator_instances_been_successful_provision?
     successful_provisioned_components?('ready', @client_aem_aws.orchestrator)
-  end
-
-  def has_chaosmonkey_instances_been_successful_provision?
-    successful_provisioned_components?('ready', @client_aem_aws.chaos_monkey)
   end
 
   def has_author_publish_dispatcher_instance_been_successful_provision?

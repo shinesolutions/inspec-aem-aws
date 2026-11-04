@@ -86,8 +86,6 @@ def init_aws_aem_instance_client(client, conf)
       [client, client.publish_dispatcher]
     when 'preview-publish-dispatcher'
       [client, client.preview_publish_dispatcher]
-    when 'chaos-monkey'
-      [client, client.chaos_monkey]
     when 'orchestrator'
       [client, client.orchestrator]
     else

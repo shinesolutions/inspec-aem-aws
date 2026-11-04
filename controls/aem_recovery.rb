@@ -116,21 +116,3 @@ control 'recover-from-orchestrator-termination' do
     it { should be_able_to_recover_from_orchestrator_termination }
   end
 end
-
-control 'terminate-chaosmonkey-instance' do
-  impact 1.0
-  title 'Terminate the Chaosmonkey instance'
-  desc 'Terminate the Chaosmonkey instance'
-  describe recovery do
-    it { should have_terminated_a_chaosmonkey_instance }
-  end
-end
-
-control 'recover-from-chaosmonkey-termination' do
-  impact 1.0
-  title 'Recover from Chaosmonkey instance termination'
-  desc 'Recover from Chaosmonkey instance termination'
-  describe recovery do
-    it { should be_able_to_recover_from_chaosmonkey_termination }
-  end
-end

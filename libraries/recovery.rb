@@ -105,14 +105,6 @@ class Recovery < Inspec.resource(1)
     elb_healthy?('recovery', @client_aem_aws.preview_publish_dispatcher)
   end
 
-  def has_terminated_a_chaosmonkey_instance?
-    @client_aem_aws.chaos_monkey.terminate_random_instance
-  end
-
-  def able_to_recover_from_chaosmonkey_termination?
-    asg_healthy?('recovery', @client_aem_aws.chaos_monkey)
-  end
-
   def has_terminated_a_orchestrator_instance?
     @client_aem_aws.orchestrator.terminate_random_instance
   end

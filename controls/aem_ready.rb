@@ -63,15 +63,6 @@ control 'orchestrator-instances-ready' do
   end
 end
 
-control 'chaosmonkey-instances-ready' do
-  impact 1.0
-  title 'Check if Chaosmonkey instances are ready'
-  desc 'Check if Chaosmonkey instances are ready'
-  describe ready do
-    it { should have_all_chaosmonkey_instances_ready }
-  end
-end
-
 control 'author-instances-provisioned-successful' do
   impact 1.0
   title 'Check if Author instances have been provisioned successful'
@@ -150,15 +141,6 @@ control 'orchestrator-instances-provisioned-successful' do
   desc 'Check orchestrator provision state'
   describe ready do
     it { should have_orchestrator_instances_been_successful_provision }
-  end
-end
-
-control 'chaosmonkey-instances-provisioned-successful' do
-  impact 1.0
-  title 'Check if Chaosmonkey instance has been provisioned successful'
-  desc 'Check chaosmonkey provision state'
-  describe ready do
-    it { should have_chaosmonkey_instances_been_successful_provision }
   end
 end
 

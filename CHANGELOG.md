@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Removed
+- Remove the Chaos Monkey checks, which AEM OpenCloud replaced with the AEM Chaos Engine: the `test-readiness-chaosmonkey`, `test-successful-provisioning-chaosmonkey` and `test-recovery-chaosmonkey` targets and their controls #AOC-I231
+
+### Changed
+- `test-readiness`, `test-provisioning`, `test-provisioning-readiness` and `test-recovery` (and their `-with-enabled-preview-architecture` variants) no longer check Chaos Monkey. The `-with-disabled-chaosmonkey` targets are kept as deprecated aliases of them #AOC-I231
 
 ## [4.2.1] - 2026-11-01
 ### Fixed
