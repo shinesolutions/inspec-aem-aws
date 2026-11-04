@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Re-enable the author-standby-cloudwatch-collectd-sync-metric-exist check, now against the collectd_GenericJMX_value metric that the CloudWatch agent publishes on Amazon Linux 2023
 
 ## [4.2.1] - 2026-11-01
 ### Fixed
