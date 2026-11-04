@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - `test-readiness`, `test-provisioning`, `test-provisioning-readiness` and `test-recovery` (and their `-with-enabled-preview-architecture` variants) no longer check Chaos Monkey. The `-with-disabled-chaosmonkey` targets are kept as deprecated aliases of them #AOC-I231
+- Environments that still have a Chaos Monkey stack are no longer checked for it #AOC-I231
 
 ## [4.2.2] - 2026-11-05
 ### Changed
