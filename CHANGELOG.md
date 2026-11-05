@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [4.2.2] - 2026-11-05
 ### Changed
 - Re-enable the author-standby-cloudwatch-collectd-sync-metric-exist check, now against the collectd_GenericJMX_value metric that the CloudWatch agent publishes on Amazon Linux 2023
 - The author-standby-cloudwatch-collectd-sync-metric-exist check now also requires the type=delay and type_instance=seconds_since_last_success dimensions, so it verifies the standby sync metric itself rather than any GenericJMX value
@@ -246,7 +246,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.1...HEAD
+[4.2.2]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.0.0...4.1.0
