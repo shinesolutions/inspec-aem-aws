@@ -108,11 +108,14 @@ end
 control 'author-standby-cloudwatch-collectd-sync-metric-exist' do
   impact 1.0
   title 'Check if author-standby collectd sync metric exists'
-  desc 'collectd metrics should be available'
+  desc 'collectd sync metric (seconds since the last successful standby sync) should be available'
   describe acceptance do
-    metrics = File.readlines('conf/cw_metric_collectd-author-standby.txt')
-    metrics.each do |metric|
-      it { should have_author_standby_cloudwatch_collectd_metrics(metric.chomp) }
+    # Each line: <metric name> [<dimension name>=<dimension value> ...]
+    metrics = File.readlines('conf/cw_metric_collectd-author-standby.txt', chomp: true).reject(&:empty?)
+    metrics.each do |line|
+      metric_name, *dimension_pairs = line.split
+      dimensions = dimension_pairs.to_h { |pair| pair.split('=', 2) }
+      it { should have_author_standby_cloudwatch_collectd_metric_with_dimensions(metric_name, dimensions) }
     end
   end
 end

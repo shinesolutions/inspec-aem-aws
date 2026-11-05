@@ -92,6 +92,18 @@ class Acceptance < Inspec.resource(1)
     @client_aem_aws.author.author_standby.component_metric?(namespace, metric_name)
   end
 
+  # Like has_author_standby_cloudwatch_collectd_metrics?, but the metric must also carry
+  # the given dimensions (e.g. type_instance=seconds_since_last_success). On Amazon Linux 2023
+  # the CloudWatch agent publishes every GenericJMX value as collectd_GenericJMX_value and puts
+  # what it measures in dimensions, so the metric name alone doesn't identify the series.
+  def has_author_standby_cloudwatch_collectd_metric_with_dimensions?(metric_name, dimensions)
+    author_standby = @client_aem_aws.author.author_standby
+    descriptor = author_standby.descriptor
+    filter_dimensions = [{ name: 'FixedDimension', value: "#{descriptor.stack_prefix}-#{descriptor.ec2.component}" }]
+    dimensions.each { |name, value| filter_dimensions << { name: name, value: value } }
+    !author_standby.get_metrics('collectd', metric_name, { dimensions: filter_dimensions }).metrics.empty?
+  end
+
   def has_author_standby_cloudwatch_loggroups?(logfile_name)
     @client_aem_aws.author.author_standby.component_loggroup?(logfile_name)
   end
