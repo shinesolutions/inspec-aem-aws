@@ -31,41 +31,17 @@ test-readiness: test-readiness-orchestrator test-readiness-author test-readiness
 
 test-readiness-with-enabled-preview-architecture: test-readiness-orchestrator test-readiness-author test-readiness-author-dispatcher test-readiness-publish test-readiness-publish-dispatcher test-readiness-preview-publish test-readiness-preview-publish-dispatcher
 
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-readiness
-test-readiness-with-disabled-chaosmonkey: test-readiness
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-readiness-with-enabled-preview-architecture
-test-readiness-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-readiness-with-enabled-preview-architecture
-
 test-provisioning: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher
 
 test-provisioning-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-successful-provisioning-author-dispatcher test-successful-provisioning-publish test-successful-provisioning-publish-dispatcher test-successful-provisioning-preview-publish test-successful-provisioning-preview-publish-dispatcher
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-provisioning
-test-provisioning-with-disabled-chaosmonkey: test-provisioning
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-provisioning-with-enabled-preview-architecture
-test-provisioning-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-provisioning-with-enabled-preview-architecture
 
 test-provisioning-readiness: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher
 
 test-provisioning-readiness-with-enabled-preview-architecture: test-successful-provisioning-orchestrator test-readiness-orchestrator test-successful-provisioning-author-primary test-successful-provisioning-author-standby test-readiness-author test-successful-provisioning-author-dispatcher test-readiness-author-dispatcher test-successful-provisioning-publish test-readiness-publish test-successful-provisioning-publish-dispatcher test-readiness-publish-dispatcher test-successful-provisioning-preview-publish test-readiness-preview-publish test-successful-provisioning-preview-publish-dispatcher test-readiness-preview-publish-dispatcher
 
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-provisioning-readiness
-test-provisioning-readiness-with-disabled-chaosmonkey: test-provisioning-readiness
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-provisioning-readiness-with-enabled-preview-architecture
-test-provisioning-readiness-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-provisioning-readiness-with-enabled-preview-architecture
-
 test-recovery: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish
 
 test-recovery-with-enabled-preview-architecture: test-recovery-orchestrator test-recovery-author-dispatcher test-recovery-publish-dispatcher test-recovery-publish test-recovery-preview-publish-dispatcher test-recovery-preview-publish
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-recovery
-test-recovery-with-disabled-chaosmonkey: test-recovery
-
-# Deprecated alias: Chaos Monkey has been removed, so this is the same as test-recovery-with-enabled-preview-architecture
-test-recovery-with-disabled-chaosmonkey-with-enabled-preview-architecture: test-recovery-with-enabled-preview-architecture
 
 test-readiness-author:
 	$(INSPEC) exec . --show-progress --controls=\
