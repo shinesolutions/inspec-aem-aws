@@ -4,14 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Removed
-- Remove the Chaos Monkey checks, which AEM OpenCloud replaced with the AEM Chaos Engine: the `test-readiness-chaosmonkey`, `test-successful-provisioning-chaosmonkey` and `test-recovery-chaosmonkey` targets and their controls #AOC-I231
-- Remove the `-with-disabled-chaosmonkey` targets (`test-readiness-`, `test-provisioning-`, `test-provisioning-readiness-` and `test-recovery-with-disabled-chaosmonkey`, and their `-with-enabled-preview-architecture` variants). Use the targets without `-with-disabled-chaosmonkey` instead, which no longer check Chaos Monkey #AOC-I231
-
+## [4.3.0] - 2026-11-12
 ### Changed
 - `test-readiness`, `test-provisioning`, `test-provisioning-readiness` and `test-recovery` (and their `-with-enabled-preview-architecture` variants) no longer check Chaos Monkey #AOC-I231
 - Environments that still have a Chaos Monkey stack are no longer checked for it #AOC-I231
+
+### Removed
+- Remove the Chaos Monkey checks, which AEM OpenCloud replaced with the AEM Chaos Engine: the `test-readiness-chaosmonkey`, `test-successful-provisioning-chaosmonkey` and `test-recovery-chaosmonkey` targets and their controls #AOC-I231
+- Remove the `-with-disabled-chaosmonkey` targets (`test-readiness-`, `test-provisioning-`, `test-provisioning-readiness-` and `test-recovery-with-disabled-chaosmonkey`, and their `-with-enabled-preview-architecture` variants). Use the targets without `-with-disabled-chaosmonkey` instead, which no longer check Chaos Monkey #AOC-I231
 
 ## [4.2.2] - 2026-11-05
 ### Changed
@@ -255,7 +255,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.2...HEAD
+[4.3.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.1.0...4.2.0
