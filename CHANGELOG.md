@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Upgrade AEM Platform BuildEnv to 6.6.0
+- Upgrade ruby_aem_aws to 4.0.3
 
 ## [4.3.0] - 2026-11-12
 ### Changed
