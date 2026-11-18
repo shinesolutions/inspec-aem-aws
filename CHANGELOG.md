@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Commit Gemfile.lock and stop `make clean` deleting it, so `make deps` installs the committed gem versions, including Dependabot's lock file fixes
 - Upgrade AEM Platform BuildEnv to 6.6.0
 
 ## [4.3.0] - 2026-11-12

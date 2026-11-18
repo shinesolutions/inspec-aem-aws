@@ -6,7 +6,7 @@ INSPEC ?= $(if $(wildcard Gemfile.lock),bundle exec inspec,inspec)
 ci: clean deps lint
 
 clean:
-	rm -rf inspec.lock Gemfile.lock bin vendor
+	rm -rf inspec.lock bin vendor
 
 deps:
 	gem install bundler --version=4.0.22
