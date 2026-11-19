@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Commit Gemfile.lock and stop `make clean` deleting it, so `make deps` installs the committed gem versions, including Dependabot's lock file fixes
+- Upgrade AEM Platform BuildEnv to 6.7.0
+
+## [4.3.1] - 2026-11-18
+### Changed
 - Upgrade AEM Platform BuildEnv to 6.6.0
+- Upgrade ruby_aem_aws to 4.0.3
 
 ## [4.3.0] - 2026-11-12
 ### Changed
@@ -260,7 +265,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/shinesolutions/inspec-aem-aws/issues/38
 [#42]: https://github.com/shinesolutions/inspec-aem-aws/issues/42
 
-[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.3.0...HEAD
+[Unreleased]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.3.1...HEAD
+[4.3.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/shinesolutions/inspec-aem-aws/compare/4.2.0...4.2.1
